@@ -19,22 +19,83 @@
 
 //№1-------------------------------------------------------------------------------------------------------
 
-function checkAge() {
+(function checkAge() {
 
 let ageStr, ageNumber;
 ageStr = prompt("Введите возраст:");
 ageNumber = +ageStr;
-
-while(ageNumber !== ageNumber || ageStr === null || !ageStr.trim()) {
-    ageStr = prompt("Вы ввели не число, введите возраст числом:");
-    ageNumber = +ageStr;
-}
-
-if (ageNumber > 18) {
-   console.log("Вы прошли проверку");
+if (ageNumber === ageNumber && ageStr !== null && ageStr.trim() && ageNumber > 18) {
+    console.log("Вы прошли проверку");
     return ageNumber;
 }
-else {
-    checkAge();
-}
-}
+checkAge();
+})()
+
+
+//№2-------------------------------------------------------------------------------------------------------
+
+//2.1
+
+// function add(a, b) {
+//     return a+b;
+// }
+
+// //2.2
+
+// function subtract(a, b) {
+//     return a-b;
+// }
+
+// //2.3
+
+// function divide(a, b) {
+//     return a/b;
+// }
+
+// //2.4
+
+// function multiply(a, b) {
+//     return a*b;
+// }
+
+//Данные функции чистые так как:
+// 1. Ничего не выводят на экран и не отправляют http запросов
+// 2. Не взаимодействуют с глобальными переменными
+// 3. С одинаковыми аргументами возвращают всегда один результат
+
+
+//№3-------------------------------------------------------------------------------------------------------
+
+// function addCreator (a) {
+//     return function(b) {
+//         return a + b;
+//     }
+// }
+
+// /******* Проверка *******/
+// const add = addCreator(5);
+
+// console.log(add(5)); // 10
+
+// console.log(addCreator(1)(3));
+
+//№4-------------------------------------------------------------------------------------------------------
+
+// function counterCreater (step = 2) {
+//     let index = 0;
+//     return function() {
+//         index += step;
+//         return index;
+//     }
+// }
+
+/******************************** Проверка ******************************/
+// let count = counterCreater();
+// console.log (count());
+// console.log (count());
+// console.log (count());
+// console.log (count());
+// console.log (count());
+// console.log (count());
+
+// END******************************************************************************************************** */
