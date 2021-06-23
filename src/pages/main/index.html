@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/static/images/favicon.ico">
     <meta name="description" content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
@@ -11,15 +12,16 @@
 </head>
 <body>
     <header class="header container">
+        <a class="header__home-link" href="/">Home</a>
         <nav class="header__nav" aria-label="Main menu">
             <ul class="header__list">
-                <li class="header__item"><a href="/">Home</a></li>
                 <li class="header__item"><a href="#">My blog</a></li>
                 <li class="header__item"><a href="#">Sign in</a></li>
                 <li class="header__item"><a href="#">Register</a></li>
             </ul>
         </nav>
     </header>
+    @@include('header/index.html')
         <main class="container">
             <section class="main-slider">
                 <div class="main-slider__content">
@@ -32,7 +34,7 @@
                             <source srcset="../../static/images/m-slider-image-mobile-1.jpg, ../../static/images/m-slider-image-mobile-1@2x.jpg 2x" media="(max-width: 375px)">
                             <source srcset="../../static/images/m-slider-image-tablet-1.jpg, ../../static/images/m-slider-image-tablet-1@2x.jpg 2x" media="(max-width: 768px)">
                             <source srcset="../../static/images/m-slider-image-1.jpg, ../../static/images/m-slider-image-1@2x.jpg 2x">
-                            <img class="main-slider__img" src="../../static/images/m-slider-image-1.jpg" loading="lazy" alt="Woman foto" />
+                            <img class="main-slider__img" src="../../static/images/m-slider-image-1.jpg" alt="Woman foto" />
                         </picture>
                    </li>
                    <li></li>
@@ -46,7 +48,7 @@
                         <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5" transform="rotate(135 14.7002 2.41992)" fill="#070707"/>
                         </svg>                            
                     </button>
-                    <ul>
+                    <ul class="main-slider__pagination">
                         <li><button type="button"></button></li>
                         <li><button type="button"></button></li>
                         <li><button type="button"></button></li>
@@ -69,7 +71,7 @@
             <section class="skills">
                 <h2 class="skills__title">Skills</h2>
                 <p class="skills__text">I work in such programs as</p>
-                <ul class="skills__-list">
+                <ul class="skills__list">
                     <li class="skills__item">
                         <img src="../../static/images/skill/skill-html5.svg" alt="HTML5 icon">
                         <h3>HTML 5</h3>
@@ -171,6 +173,7 @@
             </section>
             
         </main>
+        @@include('footer/index.html')
     <footer class="footer footer-container">
         <h2 class="footer__title">Contacts</h2>
         <p class="footer__text">Want to know more or just chat? You are welcome!</p>
