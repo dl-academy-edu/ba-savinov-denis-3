@@ -1,4 +1,4 @@
-$text-cloud-corner-bg: #fff;
+$text-cloud-corner-bg: #F6F6F6;
 
 .main-slider__list,
 .main-slider__pagination,
@@ -51,6 +51,7 @@ $text-cloud-corner-bg: #fff;
         width: 42px;
         height: 42px;
         cursor: pointer;
+        background: none;
     }
 
     &__pagination {
@@ -84,6 +85,7 @@ $text-cloud-corner-bg: #fff;
 
 .about {
     padding: 60px 0 81px 0;
+    background: #F6F6F6;
 
     &__container {
         max-width: 578px;
@@ -159,7 +161,8 @@ $text-cloud-corner-bg: #fff;
 }
 
 .skills {
-    padding: 60px 0;
+    padding-top: 60px;
+    padding-bottom: 64px;
 
     &__title {
         text-align: center;
@@ -177,10 +180,44 @@ $text-cloud-corner-bg: #fff;
         display: flex;
         justify-content: space-between;
         text-align: center;
+        margin-top: 50px;
     }
 
     &__item {
-        max-width: 200px;
+        max-width: 180px;
         width: 100%;
+        h3, span {
+            font-size: 14px;
+            line-height: 17px;
+            color: #828282;
+        }
+        progress {
+            max-width: 142px;
+            width: 100%;
+            height: 9px;
+            border-radius: unset;
+        }
+    }
+    &__progress-bar {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.portfolio {
+    background: #F6F6F6;
+    padding: 60px 0;
+    &__title {
+        font-size: 34px;
+        line-height: 41px;
+        text-align: center;
+    }
+}
+
+.portfolio-slider {
+    &__img{
+        margin-top: 50px;
     }
 }

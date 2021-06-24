@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,163 +8,202 @@
     <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="/static/images/favicon.ico">
-    <meta name="description" content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
+    <meta name="description"
+        content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
     <title>My business card</title>
 </head>
+
 <body>
     @@include('header/index.html')
-        <main class="container">
-            <section class="main-slider">
-                <div class="main-slider__content">
-                    <h1 class="main-slider__title">Antonina Antoninovna</h1>
-                    <p class="main-slider__text">Future front-end developer 23 years old, Tolyatti</p>
-                </div>
-                <ul class="main-slider__list">
-                   <li class="main-slider__item">
-                        <picture class="main-slider__img-box">
-                            <source srcset="../../static/images/m-slider-image-mobile-1.jpg, ../../static/images/m-slider-image-mobile-1@2x.jpg 2x" media="(max-width: 375px)">
-                            <source srcset="../../static/images/m-slider-image-tablet-1.jpg, ../../static/images/m-slider-image-tablet-1@2x.jpg 2x" media="(max-width: 768px)">
-                            <source srcset="../../static/images/m-slider-image-1.jpg, ../../static/images/m-slider-image-1@2x.jpg 2x">
-                            <img class="main-slider__img" src="../../static/images/m-slider-image-1.jpg" alt="Woman foto" />
-                        </picture>
-                   </li>
-                   <li></li>
-                   <li></li>
-                   <li></li>
+    <main>
+        <section class="main-slider container">
+            <div class="main-slider__content">
+                <h1 class="main-slider__title">Antonina Antoninovna</h1>
+                <p class="main-slider__text">Future front-end developer 23 years old, Tolyatti</p>
+            </div>
+            <ul class="main-slider__list">
+                <li class="main-slider__item">
+                    <picture class="main-slider__img-box">
+                        <source
+                            srcset="../../static/images/m-slider-image-mobile-1.jpg, ../../static/images/m-slider-image-mobile-1@2x.jpg 2x"
+                            media="(max-width: 375px)">
+                        <source
+                            srcset="../../static/images/m-slider-image-tablet-1.jpg, ../../static/images/m-slider-image-tablet-1@2x.jpg 2x"
+                            media="(max-width: 768px)">
+                        <source
+                            srcset="../../static/images/m-slider-image-1.jpg, ../../static/images/m-slider-image-1@2x.jpg 2x">
+                        <img class="main-slider__img" src="../../static/images/m-slider-image-1.jpg" alt="Woman foto" />
+                    </picture>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="main-slider__control">
+                <button class="main-slider__prev-btn" type="button">
+                    <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5"
+                            transform="rotate(-135 12.5791 23.6992)" fill="#070707" />
+                        <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5"
+                            transform="rotate(135 14.7002 2.41992)" fill="#070707" />
+                    </svg>
+                </button>
+                <ul class="main-slider__pagination">
+                    <li><button class="main-slider__pagination_active" type="button"></button></li>
+                    <li><button type="button"></button></li>
+                    <li><button type="button"></button></li>
+                    <li><button type="button"></button></li>
                 </ul>
-                <div class="main-slider__control">
-                    <button class="main-slider__prev-btn" type="button">
-                        <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5" transform="rotate(-135 12.5791 23.6992)" fill="#070707"/>
-                        <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5" transform="rotate(135 14.7002 2.41992)" fill="#070707"/>
-                        </svg>                            
-                    </button>
-                    <ul class="main-slider__pagination">
-                        <li><button class="main-slider__pagination_active" type="button"></button></li>
-                        <li><button type="button"></button></li>
-                        <li><button type="button"></button></li>
-                        <li><button type="button"></button></li>
-                    </ul>
-                    <button class="main-slider__next-btn" type="button">
-                        <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="2.4209" y="0.300842" width="16.5512" height="3" rx="1.5" transform="rotate(45 2.4209 0.300842)" fill="#070707"/>
-                        <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5" transform="rotate(-45 0.299805 21.5801)" fill="#070707"/>
-                        </svg>                            
-                    </button>
-                </div>     
-            </section>
-            <section class="about about__container">
+                <button class="main-slider__next-btn" type="button">
+                    <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2.4209" y="0.300842" width="16.5512" height="3" rx="1.5"
+                            transform="rotate(45 2.4209 0.300842)" fill="#070707" />
+                        <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5"
+                            transform="rotate(-45 0.299805 21.5801)" fill="#070707" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section class="about">
+            <div class="about__container">
                 <h2 class="about__title">About me</h2>
-                <p class="about__text_left-top">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit consequat. Vel ac elit vel sagittis.</p>
-                <p class="about__text_right">Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum nisl, sed pulvinar. Commodo elit sed a fermentum non justo. Etiam platea consectetur.</p>
-                <p class="about__text_left-bottom">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus nec vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</p>
-            </section>
-            <section class="skills">
-                <h2 class="skills__title">Skills</h2>
-                <p class="skills__text">I work in such programs as</p>
-                <ul class="skills__list">
-                    <li class="skills__item">
-                        <img src="../../static/images/skill/skill-html5.svg" alt="HTML5 icon">
-                        <h3>HTML 5</h3>
-                        <div class="skills__progress-bar">
-                            <span>85%</span>
-                            <progress value="85" max="100"></progress>
-                        </div>
-                    </li>
-                    <li class="skills__item">
-                        <img src="../../static/images/skill/skill-css3.svg" alt="css3 icon">
-                        <h3>CSS/SCSS</h3>
-                        <div class="skills__progress-bar">
-                            <span>55%</span>
-                            <progress value="55" max="100"></progress>
-                        </div>
-                    </li>
-                    <li class="skills__item">
-                        <img src="../../static/images/skill/skill-JS.svg" alt="JavaScript icon">
-                        <h3>JavaScript</h3>
-                        <div class="skills__progress-bar">
-                            <span>5%</span>
-                            <progress value="5" max="100"></progress>
-                        </div>
-                    </li>
-                    <li class="skills__item">
-                        <img src="../../static/images/skill/skill-GIT.svg" alt="GitHub icon">
-                        <h3>Git/GitHub</h3>
-                        <div class="skills__progress-bar">
-                            <span>15%</span>
-                            <progress value="15" max="100"></progress>
-                        </div>
-                    </li>
-                    <li class="skills__item">
-                        <img src="../../static/images/skill/skill-figma.svg" alt="Figma icon">
-                        <h3>Figma</h3>
-                        <div class="skills__progress-bar">
-                            <span>80%</span>
-                            <progress value="80" max="100"></progress>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <section class="portfolio">
+                <p class="about__text_left-top">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis
+                    semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit
+                    consequat. Vel ac elit vel sagittis.</p>
+                <p class="about__text_right">Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum
+                    nisl, sed pulvinar. Commodo elit sed a fermentum non justo. Etiam platea consectetur.</p>
+                <p class="about__text_left-bottom">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus
+                    nec
+                    vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</p>
+            </div>
+        </section>
+        <section class="skills container">
+            <h2 class="skills__title">Skills</h2>
+            <p class="skills__text">I work in such programs as</p>
+            <ul class="skills__list">
+                <li class="skills__item">
+                    <img src="../../static/images/skill/skill-html5.svg" alt="HTML5 icon">
+                    <h3>HTML 5</h3>
+                    <div class="skills__progress-bar">
+                        <span>85%</span>
+                        <progress value="85" max="100"></progress>
+                    </div>
+                </li>
+                <li class="skills__item">
+                    <img src="../../static/images/skill/skill-css3.svg" alt="css3 icon">
+                    <h3>CSS/SCSS</h3>
+                    <div class="skills__progress-bar">
+                        <span>55%</span>
+                        <progress value="55" max="100"></progress>
+                    </div>
+                </li>
+                <li class="skills__item">
+                    <img src="../../static/images/skill/skill-JS.svg" alt="JavaScript icon">
+                    <h3>JavaScript</h3>
+                    <div class="skills__progress-bar">
+                        <span>5%</span>
+                        <progress value="5" max="100"></progress>
+                    </div>
+                </li>
+                <li class="skills__item">
+                    <img src="../../static/images/skill/skill-GIT.svg" alt="GitHub icon">
+                    <h3>Git/GitHub</h3>
+                    <div class="skills__progress-bar">
+                        <span>15%</span>
+                        <progress value="15" max="100"></progress>
+                    </div>
+                </li>
+                <li class="skills__item">
+                    <img src="../../static/images/skill/skill-figma.svg" alt="Figma icon">
+                    <h3>Figma</h3>
+                    <div class="skills__progress-bar">
+                        <span>80%</span>
+                        <progress value="80" max="100"></progress>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="portfolio">
+            <div class="container">
                 <h2 class="portfolio__title">Portfolio</h2>
                 <ul class="portfolio-slider">
                     <li class="portfolio-slider__item">
                         <picture class="portfolio-slider__img-box">
-                            <source srcset="/static/images/portfolio-image-mobile-1.jpg, /static/images/portfolio-image-mobile-1@2x.jpg 2x" media="(max-width: 375px)">
-                            <source srcset="/static/images/portfolio-image-tablet-1.jpg, /static/images/portfolio-image-tablet-1@2x.jpg 2x" media="(max-width: 768px)">
-                            <source srcset="/static/images/portfolio-image-1.jpg, /static/images/portfolio-image-1@2x.jpg 2x">
-                            <img class="portfolio-slider__img" src="../../static/images/portfolio-image-1.jpg" loading="lazy" alt="Monster image" />
+                            <source
+                                srcset="/static/images/portfolio-image-mobile-1.jpg, /static/images/portfolio-image-mobile-1@2x.jpg 2x"
+                                media="(max-width: 375px)">
+                            <source
+                                srcset="/static/images/portfolio-image-tablet-1.jpg, /static/images/portfolio-image-tablet-1@2x.jpg 2x"
+                                media="(max-width: 768px)">
+                            <source
+                                srcset="/static/images/portfolio-image-1.jpg, /static/images/portfolio-image-1@2x.jpg 2x">
+                            <img class="portfolio-slider__img" src="../../static/images/portfolio-image-1.jpg"
+                                loading="lazy" alt="Monster image" />
                         </picture>
                     </li>
                     <li class="portfolio-slider__item"></li>
                 </ul>
                 <div class="portfolio__control">
-                    <button type="button"><svg width="45" height="63" viewBox="0 0 45 63" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_d)">
-                        <rect x="31.1641" y="53" width="29.9303" height="5.42502" rx="2.71251" transform="rotate(-135 31.1641 53)" fill="#070707"/>
-                        <rect x="35" y="14.5198" width="29.9303" height="5.42502" rx="2.71251" transform="rotate(135 35 14.5198)" fill="#070707"/>
-                        </g>
-                        <defs>
-                        <filter id="filter0_d" x="0" y="0.683594" width="45" height="62.3164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                        <feOffset/>
-                        <feGaussianBlur stdDeviation="5"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                        </filter>
-                        </defs>
+                    <button type="button"><svg width="45" height="63" viewBox="0 0 45 63" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_d)">
+                                <rect x="31.1641" y="53" width="29.9303" height="5.42502" rx="2.71251"
+                                    transform="rotate(-135 31.1641 53)" fill="#070707" />
+                                <rect x="35" y="14.5198" width="29.9303" height="5.42502" rx="2.71251"
+                                    transform="rotate(135 35 14.5198)" fill="#070707" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_d" x="0" y="0.683594" width="45" height="62.3164"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                    <feOffset />
+                                    <feGaussianBlur stdDeviation="5" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                </filter>
+                            </defs>
                         </svg>
-                        </button>
+                    </button>
                     <button type="button">
                         <svg width="45" height="63" viewBox="0 0 45 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g filter="url(#filter0_d)">
-                            <rect x="13.8359" y="10" width="29.9303" height="5.42502" rx="2.71251" transform="rotate(45 13.8359 10)" fill="#070707"/>
-                            <rect x="10" y="48.4802" width="29.9303" height="5.42502" rx="2.71251" transform="rotate(-45 10 48.4802)" fill="#070707"/>
+                                <rect x="13.8359" y="10" width="29.9303" height="5.42502" rx="2.71251"
+                                    transform="rotate(45 13.8359 10)" fill="#070707" />
+                                <rect x="10" y="48.4802" width="29.9303" height="5.42502" rx="2.71251"
+                                    transform="rotate(-45 10 48.4802)" fill="#070707" />
                             </g>
                             <defs>
-                            <filter id="filter0_d" x="0" y="0" width="45" height="62.3164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
-                            <feOffset/>
-                            <feGaussianBlur stdDeviation="5"/>
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-                            </filter>
+                                <filter id="filter0_d" x="0" y="0" width="45" height="62.3164"
+                                    filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                                    <feColorMatrix in="SourceAlpha" type="matrix"
+                                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                                    <feOffset />
+                                    <feGaussianBlur stdDeviation="5" />
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                                </filter>
                             </defs>
-                            </svg>
+                        </svg>
                     </button>
                 </div>
-               <div class="portfolio__content">
-                   <h3 class="portfolio__content-title">Learning site for DL Academy courses</h3>
-                   <p class="portfolio__content-text">A simple multi-page static site. The design layout was in Figma. HTML and CSS were used. The site is responsive and cross-browser, but without adding interactivity via JavaScript.</p>
-               </div>
-            </section>
-            
-        </main>
-        @@include('footer/index.html')
+                <div class="portfolio__content">
+                    <h3 class="portfolio__content-title">Learning site for DL Academy courses</h3>
+                    <p class="portfolio__content-text">A simple multi-page static site. The design layout was in Figma.
+                        HTML
+                        and CSS were used. The site is responsive and cross-browser, but without adding interactivity
+                        via
+                        JavaScript.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    @@include('footer/index.html')
     <footer class="footer footer-container">
         <h2 class="footer__title">Contacts</h2>
         <p class="footer__text">Want to know more or just chat? You are welcome!</p>
@@ -180,4 +220,5 @@
         <span class="copyright__developer">Program code from Antonina</span>
     </footer>
 </body>
+
 </html>
