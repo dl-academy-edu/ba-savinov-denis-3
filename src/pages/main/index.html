@@ -11,16 +11,6 @@
     <title>My business card</title>
 </head>
 <body>
-    <header class="header container">
-        <a class="header__home-link" href="/">Home</a>
-        <nav class="header__nav" aria-label="Main menu">
-            <ul class="header__list">
-                <li class="header__item"><a href="#">My blog</a></li>
-                <li class="header__item"><a href="#">Sign in</a></li>
-                <li class="header__item"><a href="#">Register</a></li>
-            </ul>
-        </nav>
-    </header>
     @@include('header/index.html')
         <main class="container">
             <section class="main-slider">
@@ -42,19 +32,19 @@
                    <li></li>
                 </ul>
                 <div class="main-slider__control">
-                    <button type="button">
+                    <button class="main-slider__prev-btn" type="button">
                         <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5" transform="rotate(-135 12.5791 23.6992)" fill="#070707"/>
                         <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5" transform="rotate(135 14.7002 2.41992)" fill="#070707"/>
                         </svg>                            
                     </button>
                     <ul class="main-slider__pagination">
-                        <li><button type="button"></button></li>
+                        <li><button class="main-slider__pagination_active" type="button"></button></li>
                         <li><button type="button"></button></li>
                         <li><button type="button"></button></li>
                         <li><button type="button"></button></li>
                     </ul>
-                    <button type="button">
+                    <button class="main-slider__next-btn" type="button">
                         <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="2.4209" y="0.300842" width="16.5512" height="3" rx="1.5" transform="rotate(45 2.4209 0.300842)" fill="#070707"/>
                         <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5" transform="rotate(-45 0.299805 21.5801)" fill="#070707"/>
@@ -64,9 +54,9 @@
             </section>
             <section class="about about__container">
                 <h2 class="about__title">About me</h2>
-                <p class="about__text_left">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit consequat. Vel ac elit vel sagittis.</p>
+                <p class="about__text_left-top">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit consequat. Vel ac elit vel sagittis.</p>
                 <p class="about__text_right">Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum nisl, sed pulvinar. Commodo elit sed a fermentum non justo. Etiam platea consectetur.</p>
-                <p class="about__text_left">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus nec vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</p>
+                <p class="about__text_left-bottom">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus nec vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</p>
             </section>
             <section class="skills">
                 <h2 class="skills__title">Skills</h2>
