@@ -1,7 +1,39 @@
+.footer {
+    padding: 64px 0;
+
+    &__title {
+        font-size: 34px;
+        line-height: 41px;
+    }
+
+    &__text {
+        font-weight: 500;
+        margin: 21px 15px;
+    }
+
+    &_message-btn {
+        font-family: var(--font-gilroy);
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        background: #070707;
+        border-radius: 30px;
+        text-decoration: none;
+        padding: 10px 29px;
+        color: #fff;
+        border: none;
+        margin-top: 10px;
+    }
+}
+
+
 .footer-container {
     max-width: 318px;
     width: 100%;
     margin: 0 auto;
+    text-align: center;
+
+
 }
 
 .footer-socials__list {
