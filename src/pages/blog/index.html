@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../common.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <meta name="description"
+        content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
+    <title>My blog</title>
+</head>
+
+<body>
+    @@include('header-blog/index.html')
+    <main>
+        <h1 class="page__title">My blog</h1>
+        <section class="filters">
+
+        <!-- FORM -->
+            <h2 class="visually-hidden">Filters blog</h2>
+            <div class="tags">
+                <h3>Tags</h3>
+                <ul class="tags__list">
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="one-color">
+                        <label for="one-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="two-color">
+                        <label for="two-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="three-color">
+                        <label for="three-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="four-color">
+                        <label for="four-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="five-color">
+                        <label for="five-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="six-color">
+                        <label for="six-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="seven-color">
+                        <label for="seven-color"></label>
+                    </li>
+                    <li class="tags__item">
+                        <input type="checkbox" name="tags-item-checkbox" id="eight-color">
+                        <label for="eight-color"></label>
+                    </li>
+                </ul>
+            </div>   
+            <div class="views">
+                <h3>Views</h3>
+                <ul class="views__list">
+                    <li class="views__item">
+                        <input type="radio" name="views-item" id="views-item-one">
+                        <label for="views-item-one">100-500</label>
+                    </li>
+                    <li class="views__item">
+                        <input type="radio" name="views-item" id="views-item-two">
+                        <label for="views-item-two">500-1000</label>
+                    </li>
+                    <li class="views__item">
+                        <input type="radio" name="views-item" id="views-item-three">
+                        <label for="views-item-three">1000-2000</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="comments">
+                <h3>Comments</h3>
+                <ul class="comments__list">
+                    <li class="comments__item">
+                        <input type="checkbox" name="comments-item-checkbox" id="comments-one">
+                        <label for="comments-one">0</label>
+                    </li>
+                    <li class="comments__item">
+                        <input type="checkbox" name="comments-item-checkbox" id="comments-two">
+                        <label for="comments-two">0-1</label>
+                    </li>
+                    <li class="comments__item">
+                        <input type="checkbox" name="comments-item-checkbox" id="comments-three">
+                        <label for="comments-three">1-50</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="show">
+                <h3>How show?</h3>
+                <ul class="show__list">
+                    <li class="show__item">
+                        <input type="radio" name="show-item" id="views-item-five">
+                        <label for="show-item-five">show 5</label>
+                    </li>
+                    <li class="show__item">
+                        <input type="radio" name="show-item" id="views-item-ten">
+                        <label for="show-item-ten">show 10</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="sort">
+                <h3>Sort by</h3>
+                <ul class="sort__list">
+                    <li class="sort__item">
+                        <input type="radio" name="sort-item" id="sort-item-date">
+                        <label for="sort-item-date">date</label>
+                    </li>
+                    <li class="sort__item">
+                        <input type="radio" name="sort-item" id="sort-item-title">
+                        <label for="sort-item-title">title</label>
+                    </li>
+                    <li class="sort__item">
+                        <input type="radio" name="sort-item" id="sort-item-views">
+                        <label for="sort-item-views">views</label>
+                    </li>
+                </ul>
+            </div>    
+            <button class="filters__apply-btn" type="button" id="#filters__apply-btn">Apply</button>
+            <form action="search"></form>
+        </section>
+
+    </main>
+    @@include('footer/index.html')
+</body>
+
+</html>
