@@ -1,0 +1,127 @@
+@mixin checkbox-after ($border-color) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25px;
+    height: 25px;
+    border: 2.5px solid $border-color;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+.page__title {
+    font-size: 47px;
+    line-height: 57px;
+}
+
+fieldset {
+    border:none;
+}
+legend {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+label {
+    font-weight: 500;
+    display: inline-block;
+}
+
+
+.filters__form {
+    display: flex;
+    flex-wrap: wrap;
+    ul[class*="list"] {
+        list-style-type: none;
+    }
+    input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+            &:checked+label>svg {
+                opacity: 1;
+            }        
+            &:focus+label::after {
+                outline: #000 auto 1px;
+            }
+        }
+}
+.tags {
+    &__check-mark {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+    }
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+    }
+    label {
+        cursor: pointer;
+        &:focus {
+            outline: #000;
+        }
+    }
+    &__item {
+        position: relative;
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        margin-top: 5px;
+    }
+    &__label {
+        &-one-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#2176FF);
+            }
+        }
+        &-two-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#33A1FD);
+            }
+        }
+        &-three-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#FDCA40);
+            }
+        }
+        &-four-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#57E2E5);
+            }
+        }
+        &-five-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#F79824);
+            }
+        }
+        &-six-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#E08DAC);
+            }
+        }
+        &-seven-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#6A7FDB);
+            }
+        }
+        &-eight-color {
+            &::after {
+                content: '';
+                @include checkbox-after (#45CB85);
+            }
+        }
+    }
+}

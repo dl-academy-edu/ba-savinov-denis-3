@@ -15,115 +15,167 @@
 
 <body>
     @@include('header-blog/index.html')
-    <main>
+    <main class="container">
         <h1 class="page__title">My blog</h1>
         <section class="filters">
-
-        <!-- FORM -->
             <h2 class="visually-hidden">Filters blog</h2>
-            <div class="tags">
-                <h3>Tags</h3>
-                <ul class="tags__list">
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="one-color">
-                        <label for="one-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="two-color">
-                        <label for="two-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="three-color">
-                        <label for="three-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="four-color">
-                        <label for="four-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="five-color">
-                        <label for="five-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="six-color">
-                        <label for="six-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="seven-color">
-                        <label for="seven-color"></label>
-                    </li>
-                    <li class="tags__item">
-                        <input type="checkbox" name="tags-item-checkbox" id="eight-color">
-                        <label for="eight-color"></label>
-                    </li>
-                </ul>
-            </div>   
-            <div class="views">
-                <h3>Views</h3>
-                <ul class="views__list">
-                    <li class="views__item">
-                        <input type="radio" name="views-item" id="views-item-one">
-                        <label for="views-item-one">100-500</label>
-                    </li>
-                    <li class="views__item">
-                        <input type="radio" name="views-item" id="views-item-two">
-                        <label for="views-item-two">500-1000</label>
-                    </li>
-                    <li class="views__item">
-                        <input type="radio" name="views-item" id="views-item-three">
-                        <label for="views-item-three">1000-2000</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="comments">
-                <h3>Comments</h3>
-                <ul class="comments__list">
-                    <li class="comments__item">
-                        <input type="checkbox" name="comments-item-checkbox" id="comments-one">
-                        <label for="comments-one">0</label>
-                    </li>
-                    <li class="comments__item">
-                        <input type="checkbox" name="comments-item-checkbox" id="comments-two">
-                        <label for="comments-two">0-1</label>
-                    </li>
-                    <li class="comments__item">
-                        <input type="checkbox" name="comments-item-checkbox" id="comments-three">
-                        <label for="comments-three">1-50</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="show">
-                <h3>How show?</h3>
-                <ul class="show__list">
-                    <li class="show__item">
-                        <input type="radio" name="show-item" id="views-item-five">
-                        <label for="show-item-five">show 5</label>
-                    </li>
-                    <li class="show__item">
-                        <input type="radio" name="show-item" id="views-item-ten">
-                        <label for="show-item-ten">show 10</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="sort">
-                <h3>Sort by</h3>
-                <ul class="sort__list">
-                    <li class="sort__item">
-                        <input type="radio" name="sort-item" id="sort-item-date">
-                        <label for="sort-item-date">date</label>
-                    </li>
-                    <li class="sort__item">
-                        <input type="radio" name="sort-item" id="sort-item-title">
-                        <label for="sort-item-title">title</label>
-                    </li>
-                    <li class="sort__item">
-                        <input type="radio" name="sort-item" id="sort-item-views">
-                        <label for="sort-item-views">views</label>
-                    </li>
-                </ul>
-            </div>    
-            <button class="filters__apply-btn" type="button" id="#filters__apply-btn">Apply</button>
-            <form action="search"></form>
+            <form action="#" class="filters__form" method="POST">
+                <fieldset class="filters__wrapper">
+                    <legend>Tags</legend>
+                    <ul class="tags__list">
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="one-color" checked>
+                            <label class="tags__label-one-color" for="one-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#2176FF" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="two-color">
+                            <label class="tags__label-two-color" for="two-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#33A1FD" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="three-color">
+                            <label class="tags__label-three-color" for="three-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#FDCA40" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="four-color">
+                            <label class="tags__label-four-color" for="four-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#57E2E5" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="five-color">
+                            <label class="tags__label-five-color" for="five-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#F79824" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="six-color" checked>
+                            <label class="tags__label-six-color" for="six-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#E08DAC" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="seven-color">
+                            <label class="tags__label-seven-color" for="seven-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#6A7FDB" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                        <li class="tags__item">
+                            <input type="checkbox" name="tags-item-checkbox" id="eight-color">
+                            <label class="tags__label-eight-color" for="eight-color"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="#45CB85" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset class="filters__wrapper">
+                    <legend>Views</legend>
+                    <ul class="views__list">
+                        <li class="views__item">
+                            <input type="radio" name="views-item" id="views-item-one">
+                            <label for="views-item-one">100-500</label>
+                        </li>
+                        <li class="views__item">
+                            <input type="radio" name="views-item" id="views-item-two">
+                            <label for="views-item-two">500-1000</label>
+                        </li>
+                        <li class="views__item">
+                            <input type="radio" name="views-item" id="views-item-three">
+                            <label for="views-item-three">1000-2000</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset class="filters__wrapper">
+                    <legend>Comments</legend>
+                    <ul class="comments__list">
+                        <li class="comments__item">
+                            <input type="checkbox" name="comments-item-checkbox" id="comments-one">
+                            <label for="comments-one">0</label>
+                        </li>
+                        <li class="comments__item">
+                            <input type="checkbox" name="comments-item-checkbox" id="comments-two">
+                            <label for="comments-two">0-1</label>
+                        </li>
+                        <li class="comments__item">
+                            <input type="checkbox" name="comments-item-checkbox" id="comments-three">
+                            <label for="comments-three">1-50</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset class="filters__wrapper">
+                    <legend>How show?</legend>
+                    <ul class="show__list">
+                        <li class="show__item">
+                            <input type="radio" name="show-item" id="views-item-five">
+                            <label for="show-item-five">show 5</label>
+                        </li>
+                        <li class="show__item">
+                            <input type="radio" name="show-item" id="views-item-ten">
+                            <label for="show-item-ten">show 10</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset class="filters__wrapper">
+                    <legend>Sort by</legend>
+                    <ul class="sort__list">
+                        <li class="sort__item">
+                            <input type="radio" name="sort-item" id="sort-item-date">
+                            <label for="sort-item-date">date</label>
+                        </li>
+                        <li class="sort__item">
+                            <input type="radio" name="sort-item" id="sort-item-title">
+                            <label for="sort-item-title">title</label>
+                        </li>
+                        <li class="sort__item">
+                            <input type="radio" name="sort-item" id="sort-item-views">
+                            <label for="sort-item-views">views</label>
+                        </li>
+                    </ul>
+                </fieldset>
+                <label for="filters__reset-btn">reset form</label>
+                <button class="filters__reset-btn" type="reset" id="filters__reset-btn">Apply</button>
+                <fieldset>
+                    <input type="search" id="search-input" action="#">
+                    <button type="submit">Search</button>
+                </fieldset>
+            </form>
         </section>
 
     </main>
