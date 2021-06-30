@@ -20,8 +20,8 @@
         <section class="filters">
             <h2 class="visually-hidden">Filters blog</h2>
             <form action="#" class="filters__form" method="POST">
-                <fieldset class="filters__wrapper">
-                    <legend>Tags</legend>
+                <fieldset class="tags">
+                    <legend class="tags__title">Tags</legend>
                     <ul class="tags__list">
                         <li class="tags__item">
                             <input type="checkbox" name="tags-item-checkbox" id="one-color" checked>
@@ -105,15 +105,15 @@
                         </li>
                     </ul>
                 </fieldset>
-                <fieldset class="filters__wrapper">
-                    <legend>Views</legend>
+                <fieldset class="views">
+                    <legend class="views__title">Views</legend>
                     <ul class="views__list">
                         <li class="views__item">
                             <input type="radio" name="views-item" id="views-item-one">
                             <label for="views-item-one">100-500</label>
                         </li>
                         <li class="views__item">
-                            <input type="radio" name="views-item" id="views-item-two">
+                            <input type="radio" name="views-item" id="views-item-two" checked>
                             <label for="views-item-two">500-1000</label>
                         </li>
                         <li class="views__item">
@@ -122,8 +122,8 @@
                         </li>
                     </ul>
                 </fieldset>
-                <fieldset class="filters__wrapper">
-                    <legend>Comments</legend>
+                <fieldset class="comments">
+                    <legend class="comments__title">Comments</legend>
                     <ul class="comments__list">
                         <li class="comments__item">
                             <input type="checkbox" name="comments-item-checkbox" id="comments-one">
@@ -139,8 +139,8 @@
                         </li>
                     </ul>
                 </fieldset>
-                <fieldset class="filters__wrapper">
-                    <legend>How show?</legend>
+                <fieldset class="show">
+                    <legend class="show__title">How show?</legend>
                     <ul class="show__list">
                         <li class="show__item">
                             <input type="radio" name="show-item" id="views-item-five">
@@ -152,8 +152,8 @@
                         </li>
                     </ul>
                 </fieldset>
-                <fieldset class="filters__wrapper">
-                    <legend>Sort by</legend>
+                <fieldset class="sort">
+                    <legend class="sort__title">Sort by</legend>
                     <ul class="sort__list">
                         <li class="sort__item">
                             <input type="radio" name="sort-item" id="sort-item-date">
@@ -170,7 +170,7 @@
                     </ul>
                 </fieldset>
                 <label for="filters__reset-btn">reset form</label>
-                <button class="filters__reset-btn" type="reset" id="filters__reset-btn">Apply</button>
+                <button class="filters__reset-btn" type="reset" id="filters__reset-btn">Reset</button>
                 <fieldset>
                     <input type="search" id="search-input" action="#">
                     <button type="submit">Search</button>
