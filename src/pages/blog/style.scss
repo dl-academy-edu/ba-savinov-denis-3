@@ -61,6 +61,56 @@
 
 }
 
+@mixin checkbox-black {
+    input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+    }
+    label {
+        position: relative;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: -3px;
+            width: 25px;
+            height: 25px;
+            border: 2.5px solid #070707;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 3px;
+            width: 15px;
+            height: 15px;
+            background-image: url(../../static/images/check-mark.svg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0;
+        }
+
+    }
+
+    input[type=checkbox]:checked+label:after {
+        opacity: 1;
+    }
+
+    input[type=checkbox]:focus+label::before {
+        outline: #000 1px;
+        outline-style:ridge;
+    }
+
+    
+}
+
 .page__title {
     font-size: 47px;
     line-height: 57px;
@@ -81,7 +131,8 @@ label {
 
 .filters {
     padding-top: 41px;
-
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E5E5E5;
     &__form {
         display: flex;
         flex-wrap: wrap;
@@ -89,27 +140,26 @@ label {
         ul[class*="list"] {
             list-style-type: none;
         }
-
-        input[type=checkbox] {
-            opacity: 0;
-            position: absolute;
-            width: 0;
-            height: 0;
-
-            &:checked+label>svg {
-                opacity: 1;
-            }
-
-            &:focus+label::after {
-                outline: #000 auto 1px;
-            }
-        }
     }
 }
 
 .tags {
     margin-right: 73px;
 
+    input[type=checkbox] {
+        opacity: 0;
+        position: absolute;
+        width: 0;
+        height: 0;
+
+        &:checked+label>svg {
+            opacity: 1;
+        }
+
+        &:focus+label::after {
+            outline: #000 auto 1px;
+        }
+    }
     &__check-mark {
         position: absolute;
         left: 50%;
@@ -213,8 +263,72 @@ label {
 }
 
 .comments {
+    margin-right:  137px;
     &__item {
         margin-left: 37px;
         margin-top: 14px;
     }
+    @include checkbox-black;
+}
+
+.show {
+    margin-right:  76px;
+    &__item {
+        margin-left: 37px;
+        margin-top: 14px;
+    }
+    @include radio-check;
+}
+
+.sort {
+    margin-right: 5%;
+    &__item {
+        margin-left: 37px;
+        margin-top: 14px;
+    }
+    @include radio-check;
+}
+.reset-form {
+    padding-top: 19px;
+    &__title {
+        font-size: 14px;
+        line-height: 16px;
+        color: #E5E5E5;
+        display: block;
+        text-align: center;
+        margin-bottom: 4px;
+    }
+}
+.search {
+    width: 100%;
+    margin-top: 36px;
+    &__input {
+        font-family: var(--font-gilroy);
+        max-width: 873px;
+        width: 100%;
+        max-height: 50px;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+        color: #070707;
+        padding: 14px;
+        box-sizing: border-box;
+        border: 2.5px solid #E5E5E5;
+    }
+    &__btn{
+        margin-left: 26px;
+    }
+}
+
+.button {
+    font-family: var(--font-gilroy);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    padding: 8px 16px;
+    border: 2.5px solid #070707;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: transparent;
 }
