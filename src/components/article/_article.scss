@@ -1,0 +1,89 @@
+@mixin tag-box($color) {
+    display: inline-block;
+    width: 30px;
+    height: 10px;
+    background: $color;
+    border-radius: 5px;
+}
+
+.article {
+    display: flex;
+    border-top: 2px solid #E5E5E5;
+    padding-top: 20px;
+    padding-bottom: 16px;
+
+    &__content {
+        margin-left: 20px;
+        margin-top: 13px;
+
+        span {
+            margin-right: 5px;
+        }
+    }
+
+    &__statistic {
+        margin-top: 2px;
+    }
+
+    &__post-time,
+    &__views,
+    &__comments {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        color: #828282;
+    }
+
+    &__title {
+        font-size: 24px;
+        line-height: 29px;
+        margin-top: 14px;
+    }
+
+    &__text {
+        font-weight: 500;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    &__link {
+        font-weight: 700;
+        line-height: 22px;
+        color: #070707;
+        text-decoration: none;
+        border-bottom: 2px dashed #070707;
+
+    }
+
+    &__tags_color-F79824 {
+        @include tag-box(#F79824);
+    }
+
+    &__tags_color-6A7FDB {
+        @include tag-box(#6A7FDB);
+    }
+
+    &__tags_color-45CB85 {
+        @include tag-box(#45CB85);
+    }
+
+    &__tags_color-33A1FD {
+        @include tag-box(#33A1FD);
+    }
+
+    &__tags_color-2176FF {
+        @include tag-box(#2176FF);
+    }
+
+    &__tags_color-E08DAC {
+        @include tag-box(#E08DAC);
+    }
+
+    &__tags_color-57E2E5 {
+        @include tag-box(#57E2E5);
+    }
+
+    &__tags_color-FDCA40 {
+        @include tag-box(#FDCA40);
+    }
+}

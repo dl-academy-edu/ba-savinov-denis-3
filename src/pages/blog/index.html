@@ -170,16 +170,147 @@
                     </ul>
                 </fieldset>
                 <fieldset class="reset-form">
+                    @@include('button/index.html', {
+                        'class':'reset-form__btn',
+                        'type':'reset',
+                        'text-btn':'Reset',
+                        'id': 'reset-form__btn'
+                    })
                     <label class="reset-form__title" for="reset-form__btn">reset form</label>
-                    <button class="reset-form__btn button" type="reset" id="reset-form__btn">Reset</button>
                 </fieldset>
                 <fieldset class="search">
                     <input class="search__input" type="search" id="search-input" action="#">
-                    <button class="search__btn button" type="submit">Search</button>
+                    @@include('button/index.html', {
+                        'class':'search__btn',
+                        'type':'submit',
+                        'text-btn':'Search',
+                        'id': 'search__btn'
+                    })
                 </fieldset>
             </form>
         </section>
-
+        @@include('article/index.html', {
+            'url-img':'../../static/images/blog/post-image-1.jpg',
+            'url-img2x':'../../static/images/blog/post-image-1@2x.jpg',
+            'url-tablet':'../../static/images/blog/post-image-tablet-1.jpg',
+            'url-tablet2x':'../../static/images/blog/post-image-tablet-1@2x.jpg',
+            'url-mobile':'../../static/images/blog/post-image-mobile-1.jpg',
+            'url-mobile2x':'../../static/images/blog/post-image-mobile-1@2x.jpg',
+            'alt-img': 'a dog in a hat',
+            'date': '20.01.2020',
+            'tags': '<span class="article__tags_color-F79824"></span><span class="article__tags_color-6A7FDB"></span>',
+            'view':'223',
+            'comments':'97',
+            'title':'This is my new dog.',
+            'text':'Duis sit odio dui pretium suspendisse malesuada sit leo in. Massa nec eget etiam tellus ac. Sodales nibh pellentesque donec eu ultrices tortor condimentum massa.',
+            'link':'#'
+        })
+        @@include('article/index.html', {
+            'url-img':'../../static/images/blog/post-image-2.jpg',
+            'url-img2x':'../../static/images/blog/post-image-2@2x.jpg',
+            'url-tablet':'../../static/images/blog/post-image-tablet-2.jpg',
+            'url-tablet2x':'../../static/images/blog/post-image-tablet-2@2x.jpg',
+            'url-mobile':'../../static/images/blog/post-image-mobile-2.jpg',
+            'url-mobile2x':'../../static/images/blog/post-image-mobile-2@2x.jpg',
+            'alt-img': 'Chickens',
+            'date': '17.01.2020',
+            'tags': '<span class="article__tags_color-45CB85"></span><span class="article__tags_color-33A1FD"></span>',
+            'view':'12',
+            'comments':'0',
+            'title':'Why do roosters scream in the morning?',
+            'text':'Erat nunc parturient feugiat egestas adipiscing erat eu. Non neque mi volutpat et lectus.',
+            'link':'#'
+        })
+        @@include('article/index.html', {
+            'url-img':'../../static/images/blog/post-image-3.jpg',
+            'url-img2x':'../../static/images/blog/post-image-3@2x.jpg',
+            'url-tablet':'../../static/images/blog/post-image-tablet-3.jpg',
+            'url-tablet2x':'../../static/images/blog/post-image-tablet-3@2x.jpg',
+            'url-mobile':'../../static/images/blog/post-image-mobile-3.jpg',
+            'url-mobile2x':'../../static/images/blog/post-image-mobile-3@2x.jpg',
+            'alt-img': 'Kangaroo',
+            'date': '17.01.2020',
+            'tags': '<span class="article__tags_color-2176FF"></span>',
+            'view':'337',
+            'comments':'48',
+            'title':'Kangaroo. Start.',
+            'text':'At leo at nisl tortor egestas. Mauris luctus est luctus massa tellus erat gravida. Eget aenean eget diam habitant risus. Dapibus et, nec platea felis. Facilisi ut leo arcu, semper id pellentesque quisque ultrices etiam.',
+            'link':'#'
+        })
+        @@include('article/index.html', {
+            'url-img':'../../static/images/blog/post-image-4.jpg',
+            'url-img2x':'../../static/images/blog/post-image-4@2x.jpg',
+            'url-tablet':'../../static/images/blog/post-image-tablet-4.jpg',
+            'url-tablet2x':'../../static/images/blog/post-image-tablet-4@2x.jpg',
+            'url-mobile':'../../static/images/blog/post-image-mobile-4.jpg',
+            'url-mobile2x':'../../static/images/blog/post-image-mobile-4@2x.jpg',
+            'alt-img': 'Duckling',
+            'date': '15.01.2020',
+            'tags': '<span class="article__tags_color-F79824"></span><span class="article__tags_color-45CB85"></span><span class="article__tags_color-6A7FDB"></span>',
+            'view':'222',
+            'comments':'14',
+            'title':'Met a duckling at the pond.',
+            'text':'Nulla tempus mauris sed vel bibendum. Felis urna suspendisse amet, laoreet sagittis. Semper pellentesque condimentum vitae morbi in dui. Et in et diam massa.',
+            'link':'#'
+        })
+        @@include('article/index.html', {
+            'url-img':'../../static/images/blog/post-image-4.jpg',
+            'url-img2x':'../../static/images/blog/post-image-4@2x.jpg',
+            'url-tablet':'../../static/images/blog/post-image-tablet-4.jpg',
+            'url-tablet2x':'../../static/images/blog/post-image-tablet-4@2x.jpg',
+            'url-mobile':'../../static/images/blog/post-image-mobile-4.jpg',
+            'url-mobile2x':'../../static/images/blog/post-image-mobile-4@2x.jpg',
+            'alt-img': 'Dogs',
+            'date': '20.01.2020',
+            'tags': '<span class="article__tags_color-E08DAC"></span><span class="article__tags_color-57E2E5"></span>',
+            'view':'122',
+            'comments':'23',
+            'title':'Can dogs also be friends?',
+            'text':'Eu, libero aliquet nibh turpis quis nulla et ullamcorper purus. Consequat egestas sed sagittis morbi lacus. Consectetur et justo, sagittis vitae mi faucibus urna, eu.',
+            'link':'#'
+        })
+        <section class="pagination">
+            <h2 class="visually-hidden">
+                Articles control</h2>
+            <button class="pagination__btn-prev" type="button">
+                    <svg alt="arrow left" width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5" transform="rotate(-135 12.5791 23.6992)" fill="#070707"/>
+                        <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5" transform="rotate(135 14.7002 2.41992)" fill="#070707"/>
+                    </svg>
+            </button>
+            <ul class="pagination__list">
+                <li>
+                    <button class="pagination__item pagination__item_active" type="button">1</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">2</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">3</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">4</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">5</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">6</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">7</button>
+                </li>
+                <li>
+                    <button class="pagination__item" type="button">8</button>
+                </li>
+            </ul>
+            <button class="pagination__btn-next" type="button">
+                <svg alt="arrow right" width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2.4209" y="0.300781" width="16.5512" height="3" rx="1.5" transform="rotate(45 2.4209 0.300781)" fill="#070707"/>
+                    <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5" transform="rotate(-45 0.299805 21.5801)" fill="#070707"/>
+                </svg>       
+            </button>
+        </section>
     </main>
     @@include('footer/index.html')
 </body>

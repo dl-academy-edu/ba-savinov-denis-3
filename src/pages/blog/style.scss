@@ -68,6 +68,7 @@
         width: 0;
         height: 0;
     }
+
     label {
         position: relative;
         cursor: pointer;
@@ -105,10 +106,10 @@
 
     input[type=checkbox]:focus+label::before {
         outline: #000 1px;
-        outline-style:ridge;
+        outline-style: ridge;
     }
 
-    
+
 }
 
 .page__title {
@@ -132,7 +133,7 @@ label {
 .filters {
     padding-top: 41px;
     padding-bottom: 20px;
-    border-bottom: 2px solid #E5E5E5;
+
     &__form {
         display: flex;
         flex-wrap: wrap;
@@ -160,6 +161,7 @@ label {
             outline: #000 auto 1px;
         }
     }
+
     &__check-mark {
         position: absolute;
         left: 50%;
@@ -263,33 +265,43 @@ label {
 }
 
 .comments {
-    margin-right:  137px;
+    margin-right: 137px;
+
     &__item {
         margin-left: 37px;
         margin-top: 14px;
     }
+
     @include checkbox-black;
 }
 
 .show {
-    margin-right:  76px;
+    margin-right: 76px;
+
     &__item {
         margin-left: 37px;
         margin-top: 14px;
     }
+
     @include radio-check;
 }
 
 .sort {
     margin-right: 5%;
+
     &__item {
         margin-left: 37px;
         margin-top: 14px;
     }
+
     @include radio-check;
 }
+
 .reset-form {
     padding-top: 19px;
+    display: flex;
+    flex-direction: column;
+
     &__title {
         font-size: 14px;
         line-height: 16px;
@@ -297,11 +309,15 @@ label {
         display: block;
         text-align: center;
         margin-bottom: 4px;
+        cursor: pointer;
+        order: -1;
     }
 }
+
 .search {
     width: 100%;
     margin-top: 36px;
+
     &__input {
         font-family: var(--font-gilroy);
         max-width: 873px;
@@ -315,20 +331,71 @@ label {
         box-sizing: border-box;
         border: 2.5px solid #E5E5E5;
     }
-    &__btn{
+
+    &__btn {
         margin-left: 26px;
     }
 }
 
-.button {
-    font-family: var(--font-gilroy);
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
-    color: #070707;
-    padding: 8px 16px;
-    border: 2.5px solid #070707;
-    box-sizing: border-box;
-    border-radius: 30px;
-    background-color: transparent;
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 47px;
+
+    button {
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &__list {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        padding-left: 65px;
+
+        li {
+            margin-right: 66px;
+        }
+    }
+
+    &__item {
+        font-family: var(--font-montserrat);
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
+        border: none;
+        transition: .4s;
+
+        &:hover:not(.page-item-active) {
+            opacity: 0.5;
+        }
+    }
+
+    &__item_active {
+        color: #C29974;
+    }
+
+    &__btn-prev,
+    &__btn-next {
+        width: 42px;
+        height: 42px;
+        border: 2.5px solid #070707;
+        box-sizing: border-box;
+        border-radius: 50%;
+
+        &:hover svg path {
+            stroke: #C29974;
+            stroke-opacity: 1;
+        }
+
+        &:active svg path {
+            stroke-opacity: 0.5;
+        }
+    }
+
+}
+
+path {
+    transition: .4s;
 }
