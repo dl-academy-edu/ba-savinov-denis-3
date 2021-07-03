@@ -24,10 +24,15 @@
         .header__active-link {
             color: #070707;
         }
+        &:hover a,
+        &:active a{
+            color: #070707;
+        }
     }
 
     &__item:first-child {
         margin: 0 auto 0 10px;
+
     }
 
 }

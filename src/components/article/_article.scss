@@ -52,7 +52,10 @@
         color: #070707;
         text-decoration: none;
         border-bottom: 2px dashed #070707;
-
+        &:hover,
+        &:active {
+            border-bottom: 1px solid #070707;
+        }
     }
 
     &__tags_color-F79824 {
