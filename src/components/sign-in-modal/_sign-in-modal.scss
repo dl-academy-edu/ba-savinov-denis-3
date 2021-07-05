@@ -1,0 +1,70 @@
+.sing-in-overlay {
+    width: 100%;
+    height: 100vh;
+    background: rgba(246, 246, 246, 0.99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.sing-in-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    max-width: 370px;
+    width: 100%;
+    max-height: 318px;
+    height: 100%;
+    background: #FFFFFF;
+    border: 2.5px solid #070707;
+    padding: 33px 38px;
+    display: none;
+    &__wrapper{
+        margin-bottom: 17px;
+    }
+    &__form {
+        label {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            display: block;
+        }
+        input {
+            font-family: var(--font-gilroy);
+            font-size: 18px;
+            line-height: 21px;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2.5px solid #E5E5E5;
+            max-width: 290px;
+            width: 100%;
+        }
+    }
+
+    &__email,
+    &__password {
+        margin-bottom: 6px;
+    }
+
+    &__submit-btn {
+        margin-top: 13px;
+    }
+    &__btn_close {
+        position: absolute;
+        top: -4px;
+        right: -44px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        transition: .4s;
+        &:hover {
+            opacity: 0.5;
+        }
+        &:active {
+            opacity: 0.3;
+        }
+    }
+}
