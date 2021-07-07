@@ -44,6 +44,16 @@ ul {
     padding: 0;
 }
 
+.modal-overlay {
+    width: 100%;
+    height: 100vh;
+    background: rgba(246, 246, 246, 0.99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+}
+
 
 
 
@@ -55,3 +65,4 @@ ul {
 @import "./button/button";
 @import "./up-btn/up-btn";
 @import "./sign-in-modal/sign-in-modal";
+@import "./register-modal/register-modal";
