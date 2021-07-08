@@ -51,7 +51,7 @@ ul {
     position: fixed;
     top: 0;
     left: 0;
-    display: block;
+    display: none;
 }
 
 
@@ -66,3 +66,4 @@ ul {
 @import "./up-btn/up-btn";
 @import "./sign-in-modal/sign-in-modal";
 @import "./register-modal/register-modal";
+@import "./message-modal/message-modal";
