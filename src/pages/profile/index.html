@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../common.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <meta name="description"
+        content="This is the user's profile page, where he can change his password, set a profile photo, change data about himself.">
+    <title>My profile</title>
+</head>
+
+<body>
+    @@include('header/index.html', {
+    'active-class-home':'',
+    'active-class-blog':'',
+    'active-class-profile':'header__active-link'
+    })
+
+    <main class="container">
+        <h1 class="page__title">My profile</h1>
+        <section class="profile">
+            <div class="profile__image-container">
+                <img class="profile__image" src="../../static/images/no-photo.svg" alt="Blanck foto">
+            </div>
+            <div class="profile__content">
+                <ul class="profile__data">
+                    <li class="profile__item">
+                        <strong class="profile__user-name-title">Name:</strong>
+                        <span class="profile__user-name">Oksana</span>
+                    </li>
+                    <li class="profile__item">
+                        <strong class="profile__user-surname-title">Surname:</strong>
+                        <span class="profile__user-surname">Larioshkina</span>
+                    </li>
+                    <li class="profile__item">
+                        <strong class="profile__user-email-title">Email:</strong>
+                        <span class="profile__user-email">larioshkina@gmail.com</span>
+                    </li>
+                    <li class="profile__item">
+                        <strong class="profile__user-password-title">Password:</strong>
+                        <span class="profile__user-password">**********</span>
+                    </li>
+                    <li class="profile__item">
+                        <strong class="profile__user-location-title">Location:</strong>
+                        <span class="profile__user-location">Tolyatti</span>
+                    </li>
+                    <li class="profile__item">
+                        <strong class="profile__user-age-title">Age:</strong>
+                        <span class="profile__user-age">23</span>
+                    </li>
+                </ul>
+                @@include('button/index.html', {
+                    'class':'profile__change-password-btn',
+                    'type':'button',
+                    'text-btn':'Change password',
+                    'id': 'change-password-btn',
+                    'disable': ''
+                })
+                @@include('button/index.html', {
+                    'class':'profile__change-data-btn',
+                    'type':'button',
+                    'text-btn':'Change other data',
+                    'id': 'change-data-btn',
+                    'disable': ''
+                })
+                @@include('button/index.html', {
+                    'class':'profile__delete-account-btn',
+                    'type':'button',
+                    'text-btn':'Delete account',
+                    'id': 'delete-account-btn',
+                    'disable': ''
+                })
+            </div>
+        </section>
+    </main>
+    <div class="modal-overlay"></div>
+    @@include('edit-password-modal/index.html')
+</body>
+
+</html>

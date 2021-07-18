@@ -14,7 +14,11 @@
 </head>
 
 <body>
-    @@include('header-blog/index.html')
+    @@include('header/index.html', {
+    'active-class-home':'',
+    'active-class-blog':'header__active-link',
+    'active-class-profile':''
+    })
     <main class="container">
         <h1 class="page__title">My blog</h1>
         <section class="filters">
@@ -171,22 +175,22 @@
                 </fieldset>
                 <fieldset class="reset-form">
                     @@include('button/index.html', {
-                        'class':'reset-form__btn',
-                        'type':'reset',
-                        'text-btn':'Reset',
-                        'id': 'reset-form__btn',
-                        'disable': ''
+                    'class':'reset-form__btn',
+                    'type':'reset',
+                    'text-btn':'Reset',
+                    'id': 'reset-form__btn',
+                    'disable': ''
                     })
                     <label class="reset-form__title" for="reset-form__btn">reset form</label>
                 </fieldset>
                 <fieldset class="search">
                     <input class="search__input" type="search" id="search-input" action="#">
                     @@include('button/index.html', {
-                        'class':'search__btn',
-                        'type':'submit',
-                        'text-btn':'Search',
-                        'id': 'search__btn',
-                        'disable': ''
+                    'class':'search__btn',
+                    'type':'submit',
+                    'text-btn':'Search',
+                    'id': 'search__btn',
+                    'disable': ''
                     })
                 </fieldset>
             </form>
@@ -275,10 +279,13 @@
             <h2 class="visually-hidden">
                 Articles control</h2>
             <button class="pagination__btn-prev" type="button">
-                    <svg alt="arrow left" width="15" height="24" viewBox="0 0 15 24" fill="#070707" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5" transform="rotate(-135 12.5791 23.6992)" />
-                        <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5" transform="rotate(135 14.7002 2.41992)" />
-                    </svg>
+                <svg alt="arrow left" width="15" height="24" viewBox="0 0 15 24" fill="#070707"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5"
+                        transform="rotate(-135 12.5791 23.6992)" />
+                    <rect x="14.7002" y="2.41992" width="16.5512" height="3" rx="1.5"
+                        transform="rotate(135 14.7002 2.41992)" />
+                </svg>
             </button>
             <ul class="pagination__list">
                 <li>
@@ -307,13 +314,16 @@
                 </li>
             </ul>
             <button class="pagination__btn-next" type="button">
-                <svg alt="arrow right" width="15" height="24" viewBox="0 0 15 24" fill="#070707" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2.4209" y="0.300781" width="16.5512" height="3" rx="1.5" transform="rotate(45 2.4209 0.300781)" />
-                    <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5" transform="rotate(-45 0.299805 21.5801)" />
-                </svg>       
+                <svg alt="arrow right" width="15" height="24" viewBox="0 0 15 24" fill="#070707"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2.4209" y="0.300781" width="16.5512" height="3" rx="1.5"
+                        transform="rotate(45 2.4209 0.300781)" />
+                    <rect x="0.299805" y="21.5801" width="16.5512" height="3" rx="1.5"
+                        transform="rotate(-45 0.299805 21.5801)" />
+                </svg>
             </button>
         </section>
-    </main>
+        </main>
     @@include('footer/index.html')
     @@include('up-btn/index.html')
 </body>

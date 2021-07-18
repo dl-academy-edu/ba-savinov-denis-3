@@ -51,14 +51,22 @@ ul {
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.hidden {
     display: none;
 }
 
 
+@media screen and (max-width: 320px){
+    .modal-overlay {
+        display: none;
+    }
+}
+
 
 
 @import "./header/header";
-@import "./header-blog/header-blog";
 @import "./article/article";
 @import "./footer/footer";
 @import "./variables.scss";
@@ -67,3 +75,4 @@ ul {
 @import "./sign-in-modal/sign-in-modal";
 @import "./register-modal/register-modal";
 @import "./message-modal/message-modal";
+@import "./edit-password-modal/edit-password-modal";

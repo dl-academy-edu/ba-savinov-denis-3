@@ -1,10 +1,29 @@
 <header class="header container">
     <nav class="header__nav" aria-label="Main menu">
         <ul class="header__list">
-            <li class="header__item"><a class="header__active-link" href="/">Home</a></li>
-            <li class="header__item"><a href="./pages/blog/">My blog</a></li>
-            <li class="header__item"><a href="#">Sign in</a></li>
-            <li class="header__item"><a href="#">Register</a></li>
+            <li class="header__items"><a class="header__item @@active-class-home" href="/">Home</a></li>
+            <li class="header__items"><a class="header__item @@active-class-blog" href="../../pages/blog/">My blog</a></li>
+            <li class="header__items header__items-hidden"><a class="header__item @@active-class-profile" href="../profile/">My profile</a></li>
+            <li class="header__items"><button class="header__item header__sign-in-btn sign-in-btn_js" type="button">Sign in</button></li>
+            <li class="header__items"><button class="header__item header__register-btn register-btn_js" type="button">Register</button></li>
         </ul>
     </nav>
+
+    <button type="button" class="mobile-menu-open-btn"><span class="mobile-menu-btn-content"></span></button>
+    <div class="mobile-menu-wrapper mobile-menu-hidden"></div>
+    <div class="mobile-menu mobile-menu-hidden">
+        <button type="button" class="mobile-menu__close-btn">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="3.37256" width="32" height="4" rx="2" transform="rotate(45 3.37256 0)" fill="#070707"/>
+                <rect x="0.543945" y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0.543945 22.6289)" fill="#070707"/>
+            </svg>
+        </button>
+        <ul class="mobile-menu__list">
+            <li class="mobile-menu__items"><a class="mobile-menu__item @@active-class-home" href="/">Home</a></li>
+            <li class="mobile-menu__items"><a class="mobile-menu__item @@active-class-blog" href="../blog/">My blog</a></li>
+            <li class="mobile-menu__items mobile-menu__items-hidden"><a class="mobile-menu__item @@active-class-profile" href="../profile/">My profile</a></li>
+            <li class="mobile-menu__items"><button class="mobile-menu__item sign-in-btn_js" type="button">Sign in</button></li>
+            <li class="mobile-menu__items"><button class="mobile-menu__item register-btn_js" type="button">Register</button></li>
+        </ul>
+    </div>
 </header>

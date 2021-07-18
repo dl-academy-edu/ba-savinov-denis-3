@@ -40,7 +40,8 @@ $text-cloud-corner-bg: #F6F6F6;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin: 30px 0 60px 0;
+        margin-top: 30px;
+        margin-bottom: 60px;
     }
 
     &__prev-btn,
@@ -52,6 +53,23 @@ $text-cloud-corner-bg: #F6F6F6;
         height: 42px;
         cursor: pointer;
         background: none;
+
+        &:hover,
+        &:active {
+            border-color: #828282;
+
+            &>svg {
+                fill: #828282;
+            }
+        }
+
+        &:disabled {
+            border-color: #E5E5E5;
+
+            &>svg {
+                fill: #E5E5E5;
+            }
+        }
     }
 
     &__pagination {
@@ -84,7 +102,8 @@ $text-cloud-corner-bg: #F6F6F6;
 }
 
 .about {
-    padding: 60px 0 81px 0;
+    padding-top: 60px;
+    padding-bottom: 81px;
     background: #F6F6F6;
 
     &__container {
@@ -205,12 +224,15 @@ $text-cloud-corner-bg: #F6F6F6;
             border-radius: unset;
             background: #E5E5E5;
         }
+
         progress::-webkit-progress-bar {
             background: #E5E5E5;
         }
+
         progress::-webkit-progress-value {
             background: #070707;
         }
+
         progress::-moz-progress-bar {
             background: #070707;
         }
@@ -254,6 +276,24 @@ $text-cloud-corner-bg: #F6F6F6;
         position: absolute;
         border: none;
         background: transparent;
+        cursor: pointer;
+
+        &:hover,
+        &:active {
+            border-color: #828282;
+
+            &>svg {
+                fill: #828282;
+            }
+        }
+
+        &:disabled {
+            border-color: #E5E5E5;
+
+            &>svg {
+                fill: #E5E5E5;
+            }
+        }
     }
 }
 
@@ -279,12 +319,22 @@ $text-cloud-corner-bg: #F6F6F6;
         box-sizing: border-box;
     }
 
+    &__link {
+        text-decoration: none;
+        color: #fff;
+    }
+
     &__content-title {
         font-weight: 500;
         font-size: 18px;
         line-height: 21px;
         border-bottom: 1px dashed #FFFFFF;
         display: inline-block;
+
+        &:hover,
+        &:focus {
+            border-bottom: 1px solid;
+        }
     }
 
     &__content-text {
@@ -294,4 +344,270 @@ $text-cloud-corner-bg: #F6F6F6;
         max-width: 400px;
         margin: 17px auto 0;
     }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+
+    .main-slider__title {
+        width: 40%;
+        margin-right: 58px;
+    }
+
+    .main-slider__text {
+        width: 35%;
+    }
+
+    .main-slider__control {
+        margin-top: 38px;
+    }
+
+    .portfolio-slider__img {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .skills__progress-bar {
+        justify-content: space-around;
+    }
+
+    .skills__item progress {
+        max-width: 111px;
+    }
+
+    .skills__list {
+        flex-wrap: wrap;
+    }
+
+    .skills__item {
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 648px;
+    }
+
+    .skills {
+        padding-bottom: 23px;
+    }
+
+    .skills__text {
+        font-weight: 400;
+    }
+
+    .skills__item {
+        max-width: 147px;
+    }
+
+    .skills__progress-bar {
+        justify-content: space-between;
+    }
+
+    .portfolio {
+        &-slider {
+            margin-top: 51px;
+        }
+
+        &__control-next-btn {
+            right: 2%;
+            top: -43.5vw;
+        }
+
+        &__control-prev-btn {
+            left: 2%;
+            top: -43.5vw;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 767px) {
+    .header nav {
+        width: 90%;
+    }
+
+    .container {
+        margin: 0 auto;
+        width: unset;
+        max-width: 90%;
+    }
+
+    .main-slider__content {
+        flex-wrap: wrap;
+    }
+
+    .main-slider__text {
+        width: 40%;
+    }
+
+    .main-slider__title {
+        width: 50%;
+        margin-right: 0;
+    }
+
+    .main-slider__img {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 486px) {
+    .about {
+
+        &__text_left-top,
+        &__text_left-bottom,
+        &__text_right {
+            max-width: 279px;
+            margin: 38px auto;
+        }
+
+        &__text_left-top {
+            &::after {
+                bottom: -8%;
+            }
+        }
+
+        &__text_left-bottom,
+        &__text_right {
+            &::after {
+                bottom: -11%;
+            }
+        }
+
+    }
+
+    .portfolio {
+
+        &__control-next-btn,
+        &__control-prev-btn {
+            top: -63.5vw;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 320px) {
+    .header {
+        border: none;
+        padding: 0;
+
+        &__nav {
+            display: none;
+        }
+    }
+
+    .container {
+        margin: 0 20px;
+    }
+
+    .mobile-menu-open-btn {
+        display: block;
+    }
+
+    .about {
+        padding-top: 40px;
+        padding-bottom: 62px;
+
+        &__text_right {
+            margin: 38px auto;
+            &::after {
+                left: 10%;
+            }
+        }
+
+        &__text_left-top,
+        &__text_left-bottom {
+            margin: 0 auto;
+
+            &::after {
+                right: 10%;
+            }
+        }
+
+        &__title {
+            margin-bottom: 30px;
+        }
+    }
+
+    .skills {
+        padding-top: 40px;
+        padding-bottom: 0px;
+        &__item {
+            max-width: 130px;
+            progress {
+                max-width: 94px;
+            }
+        }
+        &__text {
+            margin-top: 12px;
+        }
+        &__list {
+            margin-top: 40px;
+        }
+    }
+
+    .portfolio {
+        padding: 40px 0;
+        &-slider {
+            margin-top: 31px;
+        }
+        &__control-next-btn, 
+        &__control-prev-btn {
+            top: -104.5vw;
+        }
+        &__control-prev-btn {
+            left: 0;
+        }
+        &__control-next-btn {
+            right: 0;
+        }
+        &-slider__content {
+            height: 181px;
+            padding: 20px 0;
+        }
+
+        &-slider__content-text {
+            max-width: 260px;
+        }
+        &-slider__content-title {
+            font-weight: 400;
+            display: inline;
+        }
+        &-slider__link {
+            display: block;
+            margin: 0 auto;
+            width: 60%;
+        }
+    }
+    
+
+    .main-slider {
+        &__content {
+            margin: 9px 0 26px;
+        }
+
+        &__title {
+            width: 100%;
+            margin-bottom: 22px;
+        }
+
+        &__text {
+            width: 70%;
+        }
+
+        &__control {
+            margin-top: 30px;
+            margin-bottom: 36px;
+        }
+
+    }
+
+
 }

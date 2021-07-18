@@ -1,0 +1,29 @@
+<div class="edit-password-modal">
+    <h2 class="visually-hidden">Edit password Window</h2>
+    <form action="#" class="edit-password-modal__form" method="POST" name="edit-password">
+        <fieldset class="edit-password-modal__wrapper">
+            <label class="edit-password-modal__old-password" for="edit-password-old-password">Old password <sup>*</sup></label>
+            <input type="password" id="edit-password-old-password" name="old-password" placeholder="**********">
+        </fieldset>
+        <fieldset class="edit-password-modal__wrapper">
+            <label class="edit-password-modal__new-password" for="edit-password-new-password">New password <sup>*</sup></label>
+            <input type="password" id="edit-password-new-password" name="new-password" placeholder="****************">
+        </fieldset>
+        <fieldset class="edit-password-modal__wrapper">
+            <label class="edit-password-modal__repeat-new-password" for="edit-password-repeat-new-password">Repeat new password <sup>*</sup></label>
+            <input type="password" id="edit-password-repeat-new-password" name="repeat-new-password" placeholder="****************">
+        </fieldset>
+        @@include('button/index.html', {
+        'class':'edit-password-modal__submit-btn',
+        'type':'submit',
+        'text-btn':'Change password',
+        'id': 'edit-password-modal__submit-btn'
+        })
+    </form>
+    <button class="edit-password-modal__btn_close" type="button" aria-label="edit password modal close">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill="#828282"/>
+            <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill="#828282"/>
+        </svg>
+    </button>
+</div>

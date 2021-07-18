@@ -354,6 +354,7 @@ label {
         display: flex;
         justify-content: center;
         align-items: center;
+
         li {
             margin-right: 9px;
         }
@@ -389,13 +390,16 @@ label {
         &:active {
             border: 2.5px solid #828282;
         }
+
         &:disabled {
             border: 2.5px solid #E5E5E5;
         }
+
         &:hover svg,
         &:active svg {
             fill: #828282;
         }
+
         &:disabled svg {
             fill: #E5E5E5;
         }
