@@ -78,7 +78,7 @@ main {
 
 @media screen and (max-width: 767px)  {
     .header nav {
-        width: 90%;
+        width: 95%;
     }
     .container {
         margin: 0 auto;
@@ -102,6 +102,8 @@ main {
     }
     .mobile-menu-open-btn {
         display: block;
+        top: 50px;
+        right: 0px;
     }
     .page__title {
         margin-top: 9px;
