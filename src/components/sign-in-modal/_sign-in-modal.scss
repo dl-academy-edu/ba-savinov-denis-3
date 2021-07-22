@@ -58,11 +58,30 @@
         background: transparent;
         border: none;
         transition: .4s;
-        &:hover {
-            opacity: 0.5;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .sing-in-modal {
+        overflow-y: auto;
+        max-height: 340px;
+        padding: 59px 38px 30px;
+        &__btn_close {
+            top: 11px;
+            left: 28px;
         }
-        &:active {
-            opacity: 0.3;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sing-in-modal {
+        max-width: unset;
+        max-height: unset;
+        border: none;
+        padding: 54px 38px;
+        &__btn_close {
+            top: 11px;
+            left: 28px;
         }
     }
 }

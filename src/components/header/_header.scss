@@ -111,6 +111,7 @@
 }
 .mobile-menu {
     position: fixed;
+    overflow-y: auto;
     right: 7px;
     top: 50px;
     text-align: end;

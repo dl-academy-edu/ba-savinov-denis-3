@@ -57,6 +57,11 @@ ul {
     display: none;
 }
 
+button[class*="__btn_close"]:hover svg,
+button[class*="__btn_close"]:focus svg {
+    fill: #070707;
+}
+
 
 @media screen and (max-width: 320px){
     .modal-overlay {

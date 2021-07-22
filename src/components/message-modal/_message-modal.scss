@@ -142,11 +142,47 @@
         background: transparent;
         border: none;
         transition: .4s;
-        &:hover {
-            opacity: 0.5;
-        }
-        &:active {
-            opacity: 0.3;
-        }
     }
+}
+
+
+@media screen and (max-width:767px) {
+    .message-modal {
+        overflow-y: auto;
+        padding: 55px 15px 30px;
+        max-height: unset;
+        &__block {
+            margin: 0 auto;
+            max-width: 90%;
+        }
+        &__wrapper-email {
+            max-width: 90%;
+            margin: 0 auto 17px;
+        }
+        &__wrapper-agreement {
+            margin-top: 20px;
+        }
+        &__btn_close {
+            top: 3%;
+            left: 5%;
+        }
+        &__text {
+            max-width: 90%;
+            margin: 15px auto 17px; 
+        }
+
+    }
+ 
+}
+
+@media screen and (max-width:320px) {
+    .message-modal {  
+        &__block,
+        &__wrapper-email,
+        &__text {
+            max-width: 100%;
+        }
+        
+    }
+ 
 }
