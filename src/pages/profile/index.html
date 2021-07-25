@@ -54,14 +54,14 @@
                     </li>
                 </ul>
                 @@include('button/index.html', {
-                    'class':'profile__change-password-btn',
+                    'class':'profile__change-password-btn change-password-btn_js',
                     'type':'button',
                     'text-btn':'Change password',
                     'id': 'change-password-btn',
                     'disable': ''
                 })
                 @@include('button/index.html', {
-                    'class':'profile__change-data-btn',
+                    'class':'profile__change-data-btn change-data-btn_js',
                     'type':'button',
                     'text-btn':'Change other data',
                     'id': 'change-data-btn',
@@ -77,10 +77,12 @@
             </div>
         </section>
     </main>
-    <div class="modal-overlay hidden"></div>
+    <div class="modal-overlay hidden modal-overlay_js"></div>
     @@include('edit-password-modal/index.html')
     @@include('edit-data-modal/index.html')
-    
+    @@include('sign-in-modal/index.html')
+    @@include('register-modal/index.html')
+    <script src="../../script.js"></script>
 </body>
 
 </html>

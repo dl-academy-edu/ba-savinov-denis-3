@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="common.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common.min.css">
+    <link rel="stylesheet" href="style.min.css">
     <link rel="shortcut icon" href="/static/images/favicon.ico">
     <meta name="description"
         content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
@@ -179,10 +179,11 @@
     </main>
     @@include('footer/index.html')
     @@include('up-btn/index.html')
-    <div class="modal-overlay hidden"></div>
+    <div class="modal-overlay hidden modal-overlay_js"></div>
     @@include('sign-in-modal/index.html')
     @@include('register-modal/index.html')
     @@include('message-modal/index.html')
+    <script src="script.js"></script>
 </body>
 
 </html>
