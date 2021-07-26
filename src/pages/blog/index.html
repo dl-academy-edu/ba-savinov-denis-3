@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../common.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../common.min.css">
+    <link rel="stylesheet" href="style.min.css">
     <link rel="shortcut icon" href="/static/images/favicon.ico">
     <meta name="description"
         content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
@@ -184,7 +184,7 @@
                     <label class="reset-form__title" for="reset-form__btn">reset form</label>
                 </fieldset>
                 <fieldset class="search">
-                    <input class="search__input" type="search" id="search-input" action="#">
+                    <input class="search__input" type="search" id="search-input">
                     @@include('button/index.html', {
                     'class':'search__btn',
                     'type':'submit',
@@ -276,10 +276,9 @@
             'link':'#'
         })
         <section class="pagination">
-            <h2 class="visually-hidden">
-                Articles control</h2>
-            <button class="pagination__btn-prev" type="button">
-                <svg alt="arrow left" width="15" height="24" viewBox="0 0 15 24" fill="#070707"
+            <h2 class="visually-hidden">Articles control</h2>
+            <button class="pagination__btn-prev" type="button" aria-label="page prev">
+                <svg width="15" height="24" viewBox="0 0 15 24" fill="#070707"
                     xmlns="http://www.w3.org/2000/svg">
                     <rect x="12.5791" y="23.6992" width="16.5512" height="3" rx="1.5"
                         transform="rotate(-135 12.5791 23.6992)" />
@@ -313,8 +312,8 @@
                     <button class="pagination__item" type="button">8</button>
                 </li>
             </ul>
-            <button class="pagination__btn-next" type="button">
-                <svg alt="arrow right" width="15" height="24" viewBox="0 0 15 24" fill="#070707"
+            <button class="pagination__btn-next" type="button" aria-label="page next">
+                <svg width="15" height="24" viewBox="0 0 15 24" fill="#070707"
                     xmlns="http://www.w3.org/2000/svg">
                     <rect x="2.4209" y="0.300781" width="16.5512" height="3" rx="1.5"
                         transform="rotate(45 2.4209 0.300781)" />
@@ -330,7 +329,7 @@
     @@include('sign-in-modal/index.html')
     @@include('register-modal/index.html')
     @@include('message-modal/index.html')
-    <script src="../../script.js"></script>
+    <script src="../../script.min.js"></script>
 </body>
 
 </html>
