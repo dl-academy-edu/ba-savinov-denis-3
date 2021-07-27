@@ -26,14 +26,25 @@ window.addEventListener('scroll', ()=> {
 //Open-Close modal window
 (function () {
     modalControll ('.sign-in-btn_js', '.sing-in-modal_js');
-    if (document.querySelector('.message-btn_js')) {
-        modalControll ('.message-btn_js', '.message-modal_js');
-    }
+    modalControll ('.message-btn_js', '.message-modal_js');
     modalControll ('.register-btn_js', '.sing-up-modal_js');
     modalControll ('.change-password-btn_js', '.edit-password-modal_js');
     modalControll ('.change-data-btn_js', '.edit-data-modal_js');
 
 })();
+
+(function () {
+    const formSignIn = document.forms.signInform;
+    const email = formSignIn.elements.email;
+    const password = formSignIn.elements.password;
+    formSignIn.addEventListener('submit', function (event) {
+        event.preventDefault()
+        const data = {
+            email: email.value,
+            password: password.value,
+        };
+    })
+})
 
 
 
@@ -45,6 +56,9 @@ window.addEventListener('scroll', ()=> {
 
 
 function modalControll (classBtnOpen, classModal) {
+    if (!(document.querySelector(classModal))) {
+        return;
+    }
     const modalWindow = document.querySelector(classModal);
     const modalOverlay = document.querySelector('.modal-overlay_js');
     const btnOpen = document.querySelector(classBtnOpen);
