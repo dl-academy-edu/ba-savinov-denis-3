@@ -57,12 +57,25 @@ ul {
     display: none;
 }
 
+.message-error {
+    font-family: var(--font-gilroy);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #EB3617;
+}
+
+.error.input-invalide {
+    border: 2.5px solid #EB3617;
+    box-sizing: border-box;
+}
+
 button[class*="__btn_close"]:hover svg,
 button[class*="__btn_close"]:focus svg {
     fill: #070707;
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
     .modal-overlay {
         display: none;
     }
