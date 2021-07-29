@@ -1,17 +1,17 @@
 <div class="edit-password-modal hidden edit-password-modal_js">
     <h2 class="visually-hidden">Edit password Window</h2>
-    <form action="#" class="edit-password-modal__form" method="POST" name="edit-password">
+    <form action="#" class="edit-password-modal__form" method="POST" name="editPasswordForm">
         <fieldset class="edit-password-modal__wrapper">
             <label class="edit-password-modal__old-password" for="edit-password-old-password">Old password <sup>*</sup></label>
-            <input type="password" id="edit-password-old-password" name="old-password" placeholder="**********">
+            <input type="password" id="edit-password-old-password" name="oldPassword" placeholder="**********">
         </fieldset>
         <fieldset class="edit-password-modal__wrapper">
             <label class="edit-password-modal__new-password" for="edit-password-new-password">New password <sup>*</sup></label>
-            <input type="password" id="edit-password-new-password" name="new-password" placeholder="****************">
+            <input type="password" id="edit-password-new-password" name="newPassword" placeholder="****************">
         </fieldset>
         <fieldset class="edit-password-modal__wrapper">
             <label class="edit-password-modal__repeat-new-password" for="edit-password-repeat-new-password">Repeat new password <sup>*</sup></label>
-            <input type="password" id="edit-password-repeat-new-password" name="repeat-new-password" placeholder="****************">
+            <input type="password" id="edit-password-repeat-new-password" name="repeatNewPassword" placeholder="****************">
         </fieldset>
         @@include('button/index.html', {
         'class':'edit-password-modal__submit-btn',

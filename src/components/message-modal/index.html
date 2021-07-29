@@ -1,22 +1,22 @@
 <div class="message-modal hidden message-modal_js">
     <h2 class="visually-hidden">Send message Window</h2>
-    <form action="#" class="message-modal__form" method="POST">
+    <form action="#" class="message-modal__form" method="POST" name="messageForm">
         <fieldset class="message-modal__wrapper">
             <div class="message-modal__block">
                 <label class="message-modal__name" for="message-modal-name">What is your name? <sup>*</sup></label>
-                <input type="text" id="message-modal-name" name="name" required>
+                <input type="text" id="message-modal-name" name="name">
             </div>
             <div class="message-modal__block">
                 <label class="message-modal__subject" for="message-modal-subject">Message subject <sup>*</sup></label>
-                <input type="text" id="message-modal-subject" name="subject" required>
+                <input type="text" id="message-modal-subject" name="subject">
             </div>
             <div class="message-modal__block">
                 <label class="message-modal__email" for="message-modal-email">Your Email <sup>*</sup></label>
-                <input type="email" id="message-modal-email" name="email" required>
+                <input type="text" id="message-modal-email" name="email">
             </div>
             <div class="message-modal__block">
                 <label class="message-modal__phone" for="message-modal-phone">Your mobile phone <sup>*</sup></label>
-                <input type="tel" id="message-modal-phone" name="phone" required>
+                <input type="tel" id="message-modal-phone" name="phone">
             </div>
         </fieldset>
         <fieldset class="message-modal__wrapper message-modal__text">
@@ -28,7 +28,7 @@
             <label for="message-agreement">Clicking on the button, you consent to the processing of your personal data.</label>
         </fieldset>
         @@include('button/index.html', {
-            'class':'message-modal__send-btn',
+            'class':'message-modal__send-btn submit-btn_js',
             'type':'submit',
             'text-btn':'Send',
             'id': 'message-modal__send-btn',

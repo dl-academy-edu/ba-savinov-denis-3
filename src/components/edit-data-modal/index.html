@@ -1,9 +1,9 @@
 <div class="edit-data-modal hidden edit-data-modal_js">
     <h2 class="visually-hidden">Editing data Window</h2>
-    <form action="#" class="edit-data-modal__form" method="POST">
+    <form action="#" class="edit-data-modal__form" method="POST" name="editDataForm">
         <fieldset class="edit-data-modal__wrapper-email">
             <label class="edit-data-modal__email" for="edit-data-email">Email</label>
-            <input type="email" id="edit-data-email" name="email" placeholder="larioshkina@gmail.com">
+            <input type="text" id="edit-data-email" name="email" placeholder="larioshkina@gmail.com">
         </fieldset>
         <fieldset class="edit-data-modal__wrapper">
             <div class="edit-data-modal__block">
@@ -24,8 +24,8 @@
             </div>
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__file" for="edit-data-file">Profile picture</label>
-                <label class="edit-data-modal__fake-input" for="edit-data-file">file-name.png</label>
-                <input class="edit-data-modal__input-hidden" type="file" id="edit-data-file" name="file">
+                <label class="edit-data-modal__fake-input fakeFile-input_js" for="edit-data-file">file-name.png</label>
+                <input class="edit-data-modal__input-hidden" type="file" id="edit-data-file" accept=".jpg,.jpeg,.png,.webp" name="file">
             </div>
         </fieldset>
         @@include('button/index.html', {
