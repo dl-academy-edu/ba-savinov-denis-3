@@ -22,6 +22,22 @@ window.addEventListener('scroll', ()=> {
 });
 })();
 
+(function (){
+
+    const swiper = new Swiper('.swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        loop: true,
+    
+        navigation: {
+            nextEl: '.swiper-btn-next_js',
+            prevEl: '.swiper-btn-prev_js',
+        },
+    
+    });
+
+})();
+
 
 //Open-Close modal window
 (function () {

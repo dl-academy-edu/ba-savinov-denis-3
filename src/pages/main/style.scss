@@ -277,6 +277,7 @@ $text-cloud-corner-bg: #F6F6F6;
         border: none;
         background: transparent;
         cursor: pointer;
+        z-index: 1;
 
         &:hover,
         &:active {
@@ -298,8 +299,11 @@ $text-cloud-corner-bg: #F6F6F6;
 }
 
 .portfolio-slider {
-    width: 100%;
-    position: relative;
+
+    &__slide {
+        width: 100%;
+        position: relative;
+    }
 
     &__img {
         margin-top: 51px;
@@ -481,12 +485,14 @@ $text-cloud-corner-bg: #F6F6F6;
         }
 
     }
+
     .main-slider {
         &__content {
             display: flex;
             align-items: flex-end;
             margin: 13px 0 36px;
         }
+
         &__text {
             width: 61%;
         }
@@ -508,6 +514,7 @@ $text-cloud-corner-bg: #F6F6F6;
     }
 
     .portfolio {
+
         &__control-next-btn,
         &__control-prev-btn {
             top: -63.5vw;
@@ -528,6 +535,7 @@ $text-cloud-corner-bg: #F6F6F6;
 
         &__text_right {
             margin: 38px auto;
+
             &::after {
                 left: 10%;
             }
@@ -550,15 +558,19 @@ $text-cloud-corner-bg: #F6F6F6;
     .skills {
         padding-top: 40px;
         padding-bottom: 0px;
+
         &__item {
             max-width: 130px;
+
             progress {
                 max-width: 94px;
             }
         }
+
         &__text {
             margin-top: 12px;
         }
+
         &__list {
             margin-top: 40px;
         }
@@ -566,19 +578,24 @@ $text-cloud-corner-bg: #F6F6F6;
 
     .portfolio {
         padding: 40px 0;
+
         &-slider {
             margin-top: 31px;
         }
-        &__control-next-btn, 
+
+        &__control-next-btn,
         &__control-prev-btn {
             top: -104.5vw;
         }
+
         &__control-prev-btn {
             left: 0;
         }
+
         &__control-next-btn {
             right: 0;
         }
+
         &-slider__content {
             height: 181px;
             padding: 20px 0;
@@ -587,17 +604,19 @@ $text-cloud-corner-bg: #F6F6F6;
         &-slider__content-text {
             max-width: 260px;
         }
+
         &-slider__content-title {
             font-weight: 400;
             display: inline;
         }
+
         &-slider__link {
             display: block;
             margin: 0 auto;
             width: 60%;
         }
     }
-    
+
 
     .main-slider {
         &__content {
@@ -626,4 +645,9 @@ $text-cloud-corner-bg: #F6F6F6;
     }
 
 
+}
+
+
+.swiper-container {
+    width: 1000px;
 }
