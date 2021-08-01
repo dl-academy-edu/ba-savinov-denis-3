@@ -38,13 +38,23 @@ window.addEventListener('scroll', ()=> {
     const slidesCount = slides.length;
     const animationDuration = 500;
 
+
+    let slideStorage = 0;
+    if (!localStorage.getItem('activeSlide')) {
+        console.log ('пусто');
+        slideStorage = 0;
+    } else {
+        slideStorage = +localStorage.getItem('activeSlide');
+    }
+    
+
     let id =null;
     let dots = [];
     let sliderWidth = 0;
     let activeSlide = 0;
     createDots ();
     sliderInitWidth ();
-    setActiveSlide (0);
+    setActiveSlide (slideStorage);
 
     window.addEventListener('resize', ()=> {
         sliderInitWidth();
@@ -116,6 +126,7 @@ window.addEventListener('scroll', ()=> {
 
         dots[activeSlide].classList.remove('main-slider__pagination_active');
         dots[index].classList.add('main-slider__pagination_active');
+        localStorage.setItem('activeSlide', index);
         activeSlide = index;
     }
 
