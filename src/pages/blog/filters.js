@@ -1,5 +1,7 @@
 (function() {
     getParams ();
+
+
     function setDataToFilter () {
 
     };
