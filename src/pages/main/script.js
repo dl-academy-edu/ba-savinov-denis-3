@@ -41,7 +41,6 @@ window.addEventListener('scroll', ()=> {
 
     let slideStorage = 0;
     if (!localStorage.getItem('activeSlide')) {
-        console.log ('пусто');
         slideStorage = 0;
     } else {
         slideStorage = +localStorage.getItem('activeSlide');
