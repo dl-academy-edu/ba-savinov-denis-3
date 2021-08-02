@@ -23,7 +23,7 @@
         <h1 class="page__title">My blog</h1>
         <section class="filters">
             <h2 class="visually-hidden">Filters blog</h2>
-            <form action="#" class="filters__form" method="POST">
+            <form class="filters__form">
                 <fieldset class="tags">
                     <legend class="tags__title">Tags</legend>
                     <ul class="tags__list">
@@ -184,7 +184,7 @@
                     <label class="reset-form__title" for="reset-form__btn">reset form</label>
                 </fieldset>
                 <fieldset class="search">
-                    <input class="search__input" type="search" id="search-input">
+                    <input class="search__input" type="search" id="search-input" name="text-search">
                     @@include('button/index.html', {
                     'class':'search__btn',
                     'type':'submit',
@@ -330,6 +330,7 @@
     @@include('register-modal/index.html')
     @@include('message-modal/index.html')
     <script src="../../script.js"></script>
+    <script src="./filters.js"></script>
 </body>
 
 </html>
