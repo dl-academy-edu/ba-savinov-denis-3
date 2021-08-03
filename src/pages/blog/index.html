@@ -23,12 +23,12 @@
         <h1 class="page__title">My blog</h1>
         <section class="filters">
             <h2 class="visually-hidden">Filters blog</h2>
-            <form class="filters__form">
+            <form class="filters__form" name="filters">
                 <fieldset class="tags">
                     <legend class="tags__title">Tags</legend>
                     <ul class="tags__list">
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="one-color" checked>
+                            <input type="checkbox" name="tags" id="one-color" value="1">
                             <label class="tags__label-one-color" for="one-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="two-color">
+                            <input type="checkbox" name="tags" id="two-color" value="2">
                             <label class="tags__label-two-color" for="two-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +48,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="three-color">
+                            <input type="checkbox" name="tags" id="three-color" value="3">
                             <label class="tags__label-three-color" for="three-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="four-color">
+                            <input type="checkbox" name="tags" id="four-color" value="4">
                             <label class="tags__label-four-color" for="four-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +68,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="five-color">
+                            <input type="checkbox" name="tags" id="five-color" value="5">
                             <label class="tags__label-five-color" for="five-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +78,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="six-color" checked>
+                            <input type="checkbox" name="tags" id="six-color" value="6">
                             <label class="tags__label-six-color" for="six-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -88,7 +88,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="seven-color">
+                            <input type="checkbox" name="tags" id="seven-color" value="7">
                             <label class="tags__label-seven-color" for="seven-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -98,7 +98,7 @@
                                 </svg></label>
                         </li>
                         <li class="tags__item">
-                            <input type="checkbox" name="tags-item-checkbox" id="eight-color">
+                            <input type="checkbox" name="tags" id="eight-color" value="8">
                             <label class="tags__label-eight-color" for="eight-color"><svg class="tags__check-mark"
                                     width="15" height="15" viewBox="0 0 15 15" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -113,15 +113,15 @@
                     <legend class="views__title">Views</legend>
                     <ul class="views__list">
                         <li class="views__item">
-                            <input type="radio" name="views-item" id="views-item-one">
+                            <input type="radio" name="views" id="views-item-one" value="1">
                             <label for="views-item-one">100-500</label>
                         </li>
                         <li class="views__item">
-                            <input type="radio" name="views-item" id="views-item-two" checked>
+                            <input type="radio" name="views" id="views-item-two" value="2" checked>
                             <label for="views-item-two">500-1000</label>
                         </li>
                         <li class="views__item">
-                            <input type="radio" name="views-item" id="views-item-three">
+                            <input type="radio" name="views" id="views-item-three" value="3">
                             <label for="views-item-three">1000-2000</label>
                         </li>
                     </ul>
@@ -130,15 +130,15 @@
                     <legend class="comments__title">Comments</legend>
                     <ul class="comments__list">
                         <li class="comments__item">
-                            <input type="checkbox" name="comments-item-checkbox" id="comments-one" checked>
+                            <input type="checkbox" name="comments" id="comments-one" value="1">
                             <label for="comments-one">0</label>
                         </li>
                         <li class="comments__item">
-                            <input type="checkbox" name="comments-item-checkbox" id="comments-two">
+                            <input type="checkbox" name="comments" id="comments-two" value="2">
                             <label for="comments-two">0-1</label>
                         </li>
                         <li class="comments__item">
-                            <input type="checkbox" name="comments-item-checkbox" id="comments-three">
+                            <input type="checkbox" name="comments" id="comments-three" value="3">
                             <label for="comments-three">1-50</label>
                         </li>
                     </ul>
@@ -147,11 +147,11 @@
                     <legend class="show__title">How show?</legend>
                     <ul class="show__list">
                         <li class="show__item">
-                            <input type="radio" name="show-item" id="show-item-five" checked>
+                            <input type="radio" name="show" id="show-item-five" value="1" checked>
                             <label for="show-item-five">show 5</label>
                         </li>
                         <li class="show__item">
-                            <input type="radio" name="show-item" id="show-item-ten">
+                            <input type="radio" name="show" id="show-item-ten" value="2">
                             <label for="show-item-ten">show 10</label>
                         </li>
                     </ul>
@@ -160,15 +160,15 @@
                     <legend class="sort__title">Sort by</legend>
                     <ul class="sort__list">
                         <li class="sort__item">
-                            <input type="radio" name="sort-item" id="sort-item-date" checked>
+                            <input type="radio" name="sort" id="sort-item-date" value="1" checked>
                             <label for="sort-item-date">date</label>
                         </li>
                         <li class="sort__item">
-                            <input type="radio" name="sort-item" id="sort-item-title">
+                            <input type="radio" name="sort" id="sort-item-title" value="2">
                             <label for="sort-item-title">title</label>
                         </li>
                         <li class="sort__item">
-                            <input type="radio" name="sort-item" id="sort-item-views">
+                            <input type="radio" name="sort" id="sort-item-views" value="3">
                             <label for="sort-item-views">views</label>
                         </li>
                     </ul>
@@ -184,9 +184,9 @@
                     <label class="reset-form__title" for="reset-form__btn">reset form</label>
                 </fieldset>
                 <fieldset class="search">
-                    <input class="search__input" type="search" id="search-input" name="text-search">
+                    <input class="search__input" type="search" id="search-input" name="search">
                     @@include('button/index.html', {
-                    'class':'search__btn',
+                    'class':'search__btn searchBtn_js',
                     'type':'submit',
                     'text-btn':'Search',
                     'id': 'search__btn',
