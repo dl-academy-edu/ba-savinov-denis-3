@@ -1,3 +1,20 @@
+const SERVER_URL = 'https://academy.directlinedev.com';
+
+//XHR
+(function () {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', SERVER_URL + '/api/tags', false);
+    xhr.send();
+    const tags = JSON.parse(xhr.response).data;
+    const tagBox = document.querySelector('.tags__list');
+    
+    tags.forEach (tag => {
+        const tagHTML = createTag (tag);
+        tagBox.insertAdjacentHTML('beforeend', tagHTML);
+    })
+})();
+
+
 (function () {
     const form = document.forms.filters;
 
@@ -29,6 +46,30 @@
     });
     updateLinks();
 })();
+
+
+
+function createTag ({id, name, color}) {
+    let tagChecket = '';
+    if (id === 1 || id === 6) {
+        tagChecket = 'checked';
+    } else {
+        tagChecket = '';
+    }
+    
+    return `
+    <li class="tags__item">
+                            <input type="checkbox" name="tags" id="color-${id}" value="${id}" ${tagChecket}>
+                            <label class="tags__label-${id}-color" for="color-${id}"><svg class="tags__check-mark"
+                                    width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2 6.75L5.91301 12.77C6.20128 13.2135 6.85836 13.1893 7.11327 12.7259L13.425 1.25"
+                                        stroke="${color}" stroke-width="2.5" stroke-linecap="round" />
+                                </svg></label>
+                        </li>
+    `
+}
 
 function setsearchParams(data) {
     let searchParams = new URLSearchParams();

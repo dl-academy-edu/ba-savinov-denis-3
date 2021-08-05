@@ -190,56 +190,56 @@ label {
     }
 
     &__label {
-        &-one-color {
+        &-1-color {
             &::after {
                 content: '';
                 @include checkbox-after (#2176FF);
             }
         }
 
-        &-two-color {
+        &-2-color {
             &::after {
                 content: '';
                 @include checkbox-after (#33A1FD);
             }
         }
 
-        &-three-color {
+        &-3-color {
             &::after {
                 content: '';
                 @include checkbox-after (#FDCA40);
             }
         }
 
-        &-four-color {
+        &-4-color {
             &::after {
                 content: '';
                 @include checkbox-after (#57E2E5);
             }
         }
 
-        &-five-color {
+        &-5-color {
             &::after {
                 content: '';
                 @include checkbox-after (#F79824);
             }
         }
 
-        &-six-color {
+        &-6-color {
             &::after {
                 content: '';
                 @include checkbox-after (#E08DAC);
             }
         }
 
-        &-seven-color {
+        &-7-color {
             &::after {
                 content: '';
                 @include checkbox-after (#6A7FDB);
             }
         }
 
-        &-eight-color {
+        &-8-color {
             &::after {
                 content: '';
                 @include checkbox-after (#45CB85);
