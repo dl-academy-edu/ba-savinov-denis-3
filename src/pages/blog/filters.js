@@ -3,19 +3,23 @@ const SERVER_URL = 'https://academy.directlinedev.com';
 //XHR
 (function () {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', SERVER_URL + '/api/tags', false);
+    xhr.open('GET', SERVER_URL + '/api/tags');
     xhr.send();
-    const tags = JSON.parse(xhr.response).data;
-    const tagBox = document.querySelector('.tags__list');
-    
-    tags.forEach (tag => {
+    xhr.onload = () =>{
+        const tags = JSON.parse(xhr.response).data;
+        const tagBox = document.querySelector('.tags__list');
+
+        tags.forEach (tag => {
         const tagHTML = createTag (tag);
         tagBox.insertAdjacentHTML('beforeend', tagHTML);
-    })
+        });
+        getParamsToSubmit();
+    };
+    
 })();
 
 
-(function () {
+function getParamsToSubmit() {
     const form = document.forms.filters;
 
     setDataToFilter(getParams());
@@ -45,7 +49,7 @@ const SERVER_URL = 'https://academy.directlinedev.com';
         updateLinks();
     });
     updateLinks();
-})();
+}
 
 
 
