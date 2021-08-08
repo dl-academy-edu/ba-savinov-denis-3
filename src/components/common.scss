@@ -66,8 +66,21 @@ ul {
     color: #EB3617;
 }
 
+.message-noError {
+    font-family: var(--font-gilroy);
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #03BC3C;
+}
+
 .error.input-invalide {
     border: 2.5px solid #EB3617;
+    box-sizing: border-box;
+}
+
+.no-error.input-valide {
+    border: 2.5px solid #03BC3C;
     box-sizing: border-box;
 }
 

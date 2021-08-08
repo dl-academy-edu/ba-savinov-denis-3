@@ -181,23 +181,35 @@ window.addEventListener('scroll', ()=> {
     formSignIn.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        let error = {};
-        error = errorChecker(email.value,password.value);
+        let valideMessage = [];
+        valideMessage = errorChecker(email.value,password.value);
         
-        if (Object.keys(error).length)
+        
+        if (Object.keys(valideMessage[0]).length)
         {
-            Object.keys(error).forEach(key => {
-                const textError = error[key];
+            Object.keys(valideMessage[0]).forEach(key => {
+                const textError = valideMessage[0][key];
                 const input = formSignIn.elements[key];
                 setError(input, textError);
             })
-            return;
         } 
+        if (Object.keys(valideMessage[1]).length) {
+            Object.keys(valideMessage[1]).forEach(key => {
+                
+                const textError = valideMessage[1][key];
+                const input = formSignIn.elements[key];
+                setNoError(input, textError);
+            })
+            
+        }
 
-        const data = {
-            email: email.value,
-            password: password.value,
-        };
+        if (!Object.keys(valideMessage[0]).length)
+        {
+            const data = {
+                email: email.value,
+                password: password.value,
+            }
+        }
     })
 })();
 //End Validate form singin --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -226,27 +238,30 @@ window.addEventListener('scroll', ()=> {
     registerForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        let error = {};
-        error = errorChecker(email.value,password.value, undefined, name.value, sname.value, age.value, location.value, repeatPassword.value);
+        let valideMessage = [];
+        valideMessage = errorChecker(email.value,password.value, undefined, name.value, sname.value, age.value, location.value, repeatPassword.value);
         
-        if (Object.keys(error).length)
+        if (Object.keys(valideMessage[0]).length)
         {
-            Object.keys(error).forEach(key => {
-                const textError = error[key];
+            Object.keys(valideMessage[0]).forEach(key => {
+                const textError = valideMessage[0][key];
                 const input = registerForm.elements[key];
                 setError(input, textError, password, registerForm);
             })
             return;
         } 
 
-        const data = {
-            email: email.value,
-            password: password.value,
-            age: age.value,
-            name: name.value,
-            sname: sname.value,
-            location: location.value,
-        };
+        if (!Object.keys(valideMessage[0]).length)
+        {
+            const data = {
+                email: email.value,
+                password: password.value,
+                age: age.value,
+                name: name.value,
+                sname: sname.value,
+                location: location.value,
+            };
+        }
     })
 })();
 //End Validate form register --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -278,26 +293,28 @@ window.addEventListener('scroll', ()=> {
     messageForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        let error = {};
-        error = errorChecker(email.value, undefined, phone.value, name.value, undefined, undefined, undefined, undefined, subject.value);
+        let valideMessage = [];
+        valideMessage = errorChecker(email.value, undefined, phone.value, name.value, undefined, undefined, undefined, undefined, subject.value);
         
-        if (Object.keys(error).length)
+        if (Object.keys(valideMessage[0]).length)
         {
-            Object.keys(error).forEach(key => {
-                const textError = error[key];
+            Object.keys(valideMessage[0]).forEach(key => {
+                const textError = valideMessage[0][key];
                 const input = messageForm.elements[key];
                 setError(input, textError);
             })
             return;
         } 
-
-        const data = {
-            email: email.value,
-            phone: phone.value,
-            name: name.value,
-            subject: subject.value,
-            message: message.value,
-        };
+        if (!Object.keys(valideMessage[0]).length)
+        {
+            const data = {
+                email: email.value,
+                phone: phone.value,
+                name: name.value,
+                subject: subject.value,
+                message: message.value,
+            }
+        }
     })
 })();
 
@@ -319,19 +336,19 @@ window.addEventListener('scroll', ()=> {
     editPasswordForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        let error = {};
-        error = errorChecker(undefined, password.value, undefined, undefined, undefined, undefined, undefined, undefined, undefined, newPassword.value, repeatNewPassword.value);
+        let valideMessage = [];
+        valideMessage = errorChecker(undefined, password.value, undefined, undefined, undefined, undefined, undefined, undefined, undefined, newPassword.value, repeatNewPassword.value);
 
-        if (Object.keys(error).length)
+        if (Object.keys(valideMessage[0]).length)
         {
-            Object.keys(error).forEach(key => {
+            Object.keys(valideMessage[0]).forEach(key => {
                 let textError, input;
 
                 if (key === 'password'){
-                    textError = error[key];
+                    textError = valideMessage[0][key];
                     input = editPasswordForm.elements[nameInputPassword];
                 } else {
-                    textError = error[key];
+                    textError = valideMessage[0][key];
                     input = editPasswordForm.elements[key];
                 }
 
@@ -340,10 +357,13 @@ window.addEventListener('scroll', ()=> {
             return;
         } 
 
-        const data = {
-            password: password.value,
-            newPassword: newPassword.value,
-        };
+        if (!Object.keys(valideMessage[0]).length)
+        {
+            const data = {
+                password: password.value,
+                newPassword: newPassword.value,
+            }
+        }
     })
 })();
 //End Validate form editpassword --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -402,9 +422,11 @@ function setError(input, errorMessage, password, form){
     const error = errorCreator(errorMessage);
     const customInput = input;
 
-    customInput.classList.add('input-invalide');
-    customInput.classList.add('error');
-    customInput.insertAdjacentElement('afterend', error);
+    if (!customInput.classList.contains('input-invalide') && !customInput.classList.contains('error')) {
+        customInput.classList.add('input-invalide');
+        customInput.classList.add('error');
+        customInput.insertAdjacentElement('afterend', error);
+    }
 
     customInput.addEventListener('input', function() {
 
@@ -431,23 +453,34 @@ function setError(input, errorMessage, password, form){
     }, {once: true});
 }
 
-//Создание эллемента с текстом ошибки
-function errorCreator(message) {
-    let messageError = document.createElement('div');
-    messageError.classList.add('message-error');
-    messageError.innerText = message;
-    return messageError;
+function setNoError (input, message) {
+   const noError =  noErrorElementCreator(message);
+
+   if (!input.classList.contains('input-valide') && !input.classList.contains('no-error')) {
+    input.classList.add('input-valide');
+    input.classList.add('no-error');
+    input.insertAdjacentElement('afterend', noError);
+    }
+
+    input.addEventListener('input', function() {
+            noError.remove();
+            input.classList.remove('input-valide');
+            input.classList.remove('no-error');
+    }, {once: true});
 }
 
 //Checking data for errors
 function errorChecker(email, password, phone, name, sname, age, location, repeatPassword, subject, newPassword, repeatNewPassword) {
     let error = {};
+    let noError = {};
 
     if (email != undefined) {
         if (email.trim().length === 0) {
             error.email = 'This field is required';
         } else if (!emailCheck(email)) {
             error.email = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
+        } else {
+            noError.email = 'All right';
         }
     } 
 
@@ -456,6 +489,9 @@ function errorChecker(email, password, phone, name, sname, age, location, repeat
             error.subject = 'This field is required';
         } else if (!emailCheck(subject)) {
             error.subject = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
+        }
+        else {
+            noError.subject = 'All right';
         }
     } 
 
@@ -471,7 +507,12 @@ function errorChecker(email, password, phone, name, sname, age, location, repeat
             else if (!(repeatPassword === password)) {
                 error.password = 'Passwords must match!';
                 error.repeatPassword = 'Passwords must match!';
+            } else {
+                    noError.repeatPassword = 'All right';
+                    noError.password = 'All right';
             }
+        }else {
+            noError.password = 'All right';
         }
     }
 
@@ -487,6 +528,9 @@ function errorChecker(email, password, phone, name, sname, age, location, repeat
             else if (!(repeatNewPassword === newPassword)) {
                 error.newPassword = 'Passwords must match!';
                 error.repeatNewPassword = 'Passwords must match!';
+            }else {
+                noError.repeatNewPassword = 'All right';
+                noError.newPassword = 'All right';
             }
         }
     }
@@ -496,32 +540,57 @@ function errorChecker(email, password, phone, name, sname, age, location, repeat
             error.phone = 'This field is required';
         } else if (!phoneCheck(phone)) {
             error.phone = 'Please enter a valid phone (your entry is not in the format "+79999999999")';
+        } else {
+            noError.phone = 'All right';
         }
     }
 
     if (name != undefined) {
         if (name.trim().length === 0){
             error.name = 'This field is required';
+        }else {
+            noError.name = 'All right';
         }
     }
     if (sname != undefined) {
         if (sname.trim().length === 0){
             error.sname = 'This field is required';
+        }else {
+            noError.sname = 'All right';
         }
     }
     if (age != undefined) {
         if (age.trim().length === 0){
             error.age = 'This field is required';
+        }else {
+            noError.age = 'All right';
         }
     }
     if (location != undefined) {
         if (location.trim().length === 0){
             error.location = 'This field is required';
+        }else {
+            noError.location = 'All right';
         }
     }
-    return error;
+
+    return [error, noError];
 }
 
+//Создание эллемента с текстом ошибки
+function errorCreator(message) {
+    let messageError = document.createElement('div');
+    messageError.classList.add('message-error');
+    messageError.innerText = message;
+    return messageError;
+}
+
+function noErrorElementCreator(message) {
+    let messageError = document.createElement('div');
+    messageError.classList.add('message-noError');
+    messageError.innerText = message;
+    return messageError;
+}
 
 
 // Lock && Unlock button submit
