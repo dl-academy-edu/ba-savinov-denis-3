@@ -58,21 +58,25 @@ ul {
     display: none;
 }
 
-.message-error {
-    font-family: var(--font-gilroy);
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #EB3617;
+.message {
+    &-error {
+        font-family: var(--font-gilroy);
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #EB3617;
+    }
+
+    &-noError {
+        font-family: var(--font-gilroy);
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #03BC3C;
+    }
 }
 
-.message-noError {
-    font-family: var(--font-gilroy);
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    color: #03BC3C;
-}
+
 
 .error.input-invalide {
     border: 2.5px solid #EB3617;
@@ -83,6 +87,36 @@ ul {
     border: 2.5px solid #03BC3C;
     box-sizing: border-box;
 }
+
+.button {
+    &.btn-error {
+        background-color: #fff;
+        color: #EB3617;
+        border: 2.5px solid #EB3617;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: #EB3617;
+        }
+    }
+
+    &.btn-valid {
+        background-color: #fff;
+        color: #03BC3C;
+        border: 2.5px solid #03BC3C;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: #03BC3C;
+            border: 2.5px solid #03BC3C;
+        }
+    }
+
+
+}
+
 
 button[class*="__btn_close"]:hover svg,
 button[class*="__btn_close"]:focus svg {

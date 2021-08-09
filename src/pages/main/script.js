@@ -176,6 +176,7 @@ window.addEventListener('scroll', ()=> {
 
     const email = formSignIn.elements.email;
     const password = formSignIn.elements.password;
+    const submitBtn = formSignIn.querySelector ('.sing-in-btn_js');
     
 
     formSignIn.addEventListener('submit', function (event) {
@@ -187,12 +188,15 @@ window.addEventListener('scroll', ()=> {
         
         if (Object.keys(valideMessage[0]).length)
         {
+            setBtnError (submitBtn);
             Object.keys(valideMessage[0]).forEach(key => {
                 const textError = valideMessage[0][key];
                 const input = formSignIn.elements[key];
                 setError(input, textError);
             })
-        } 
+        } else {
+            setBtnValid (submitBtn);
+        }
         if (Object.keys(valideMessage[1]).length) {
             Object.keys(valideMessage[1]).forEach(key => {
                 
@@ -200,7 +204,6 @@ window.addEventListener('scroll', ()=> {
                 const input = formSignIn.elements[key];
                 setNoError(input, textError);
             })
-            
         }
 
         if (!Object.keys(valideMessage[0]).length)
@@ -213,7 +216,6 @@ window.addEventListener('scroll', ()=> {
     })
 })();
 //End Validate form singin --------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 
 //Validate form register --------------------------------------------------------------------------------------------------------------------------------------------------------------
 (function () {
@@ -231,7 +233,7 @@ window.addEventListener('scroll', ()=> {
     const age = registerForm.elements.age;
 
     const agreement = registerForm.elements.agreement;
-    const btnSubmit = registerForm.querySelector('.submit-btn_js');
+    const btnSubmit = registerForm.querySelector('.sing-up-btn_js');
 
     disableButtonAgree (btnSubmit, agreement);
 
@@ -243,13 +245,23 @@ window.addEventListener('scroll', ()=> {
         
         if (Object.keys(valideMessage[0]).length)
         {
+            setBtnError (btnSubmit);
             Object.keys(valideMessage[0]).forEach(key => {
                 const textError = valideMessage[0][key];
                 const input = registerForm.elements[key];
                 setError(input, textError, password, registerForm);
             })
-            return;
-        } 
+        } else {
+            setBtnValid (btnSubmit);
+        }
+        if (Object.keys(valideMessage[1]).length) {
+            Object.keys(valideMessage[1]).forEach(key => {
+                
+                const textError = valideMessage[1][key];
+                const input = registerForm.elements[key];
+                setNoError(input, textError);
+            })
+        }
 
         if (!Object.keys(valideMessage[0]).length)
         {
@@ -284,7 +296,7 @@ window.addEventListener('scroll', ()=> {
     const message = messageForm.elements.message;
 
     const agreement = messageForm.elements.agreement;
-    const btnSubmit = messageForm.querySelector('.submit-btn_js');
+    const btnSubmit = messageForm.querySelector('.message-btn_js');
 
 
 
@@ -298,13 +310,24 @@ window.addEventListener('scroll', ()=> {
         
         if (Object.keys(valideMessage[0]).length)
         {
+            setBtnError (btnSubmit);
             Object.keys(valideMessage[0]).forEach(key => {
                 const textError = valideMessage[0][key];
                 const input = messageForm.elements[key];
                 setError(input, textError);
             })
-            return;
-        } 
+        } else {
+            setBtnValid (btnSubmit);
+        }
+        if (Object.keys(valideMessage[1]).length) {
+            Object.keys(valideMessage[1]).forEach(key => {
+                
+                const textError = valideMessage[1][key];
+                const input = messageForm.elements[key];
+                setNoError(input, textError);
+            })
+        }
+
         if (!Object.keys(valideMessage[0]).length)
         {
             const data = {
@@ -330,6 +353,7 @@ window.addEventListener('scroll', ()=> {
     const password = editPasswordForm.elements.oldPassword;
     const newPassword = editPasswordForm.elements.newPassword;
     const repeatNewPassword = editPasswordForm.elements.repeatNewPassword;
+    const btnSubmit = editPasswordForm.querySelector('.edit-password-btn_js');
     let nameInputPassword = 'oldPassword';
 
 
@@ -341,6 +365,7 @@ window.addEventListener('scroll', ()=> {
 
         if (Object.keys(valideMessage[0]).length)
         {
+            setBtnError (btnSubmit);
             Object.keys(valideMessage[0]).forEach(key => {
                 let textError, input;
 
@@ -351,11 +376,25 @@ window.addEventListener('scroll', ()=> {
                     textError = valideMessage[0][key];
                     input = editPasswordForm.elements[key];
                 }
-
                 setError(input, textError, newPassword, editPasswordForm);
             })
-            return;
-        } 
+        } else {
+            setBtnValid (btnSubmit);
+        }
+        if (Object.keys(valideMessage[1]).length) {
+            Object.keys(valideMessage[1]).forEach(key => {
+                let textMessage, inputValid;
+
+                if (key === 'password'){
+                    textMessage = valideMessage[1][key];
+                    inputValid = editPasswordForm.elements[nameInputPassword];
+                } else {
+                    textMessage = valideMessage[1][key];
+                    inputValid = editPasswordForm.elements[key];
+                }
+                setNoError(inputValid, textMessage);
+            })
+        }
 
         if (!Object.keys(valideMessage[0]).length)
         {
@@ -382,7 +421,8 @@ window.addEventListener('scroll', ()=> {
     const age = editDataForm.elements.age;
     const fileInputFake = editDataForm.querySelector('.fakeFile-input_js');
     const fileInput = editDataForm.elements.file;
-    
+    const btnSubmit = editDataForm.querySelector('.edit-data-btn_js');
+
     fileInput.addEventListener('click', () => {
             fileInput.value = null; 
     });
@@ -395,23 +435,28 @@ window.addEventListener('scroll', ()=> {
     editDataForm.addEventListener('submit', function (event) {
         event.preventDefault();
 
-        
-
-        if (email) {
-            if (!emailCheck(email.value) && email.value.trim().length > 0) {
-                const textError = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
-                setError(email, textError, undefined, undefined);
+            if (email.value.trim().length != 0) {
+                if (!emailCheck(email.value)) {
+                    const textError = 'Please enter a valid email address (your entry is not in the format "somebody@example.com")';
+                    setError(email, textError, undefined, undefined);
+                    setBtnError (btnSubmit);
+                    return;
+                }else {
+                    setNoError(email, 'All right');
+                    setBtnValid (btnSubmit);
+                }
             }
-        } 
 
-        const data = {
-            email: email.value,
-            name: name.value,
-            sname: sname.value,
-            age: age.value,
-            location: location.value,
-            file: fileInput.value,
-        };
+            
+            const data = {
+                email: email.value,
+                name: name.value,
+                sname: sname.value,
+                age: age.value,
+                location: location.value,
+                file: fileInput.value,
+            }
+            console.log (data);
     })
 })();
 //End Validate form editdata --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -577,7 +622,7 @@ function errorChecker(email, password, phone, name, sname, age, location, repeat
     return [error, noError];
 }
 
-//Создание эллемента с текстом ошибки
+//Создание эллемента с текстом ошибки или с текстом отсутствия ошибки
 function errorCreator(message) {
     let messageError = document.createElement('div');
     messageError.classList.add('message-error');
@@ -590,6 +635,17 @@ function noErrorElementCreator(message) {
     messageError.classList.add('message-noError');
     messageError.innerText = message;
     return messageError;
+}
+
+//выставление и удаление классов кнопке отправки формы, при наличии и отсутствии ошибок
+function setBtnValid (button) {
+    button.classList.remove('btn-error');
+    button.classList.add('btn-valid');
+}
+
+function setBtnError (button) {
+    button.classList.remove('btn-valid');
+    button.classList.add('btn-error');
 }
 
 
