@@ -1,4 +1,5 @@
 const SERVER_URL = 'https://academy.directlinedev.com';
+const LIMIT = 5;
 
 //XHR для тегов
 (function () {
@@ -14,7 +15,7 @@ const SERVER_URL = 'https://academy.directlinedev.com';
         tagBox.insertAdjacentHTML('beforeend', tagHTML);
         });
         getParamsToSubmit();
-        getArticle ();
+        getArticle (getParams());
         arrovPaginationControl ();
     };
     
@@ -72,10 +73,31 @@ function arrovPaginationControl () {
 }
 
 //получение и вывод статей
-function getArticle () {
+function getArticle (params) {
     const xhr = new XMLHttpRequest();
     let searchParams = new URLSearchParams();
     searchParams.set('v', '1.0.0'); 
+    if (params.tags && Array.isArray(params.tags) && params.tags.length) {
+        searchParams.set('tags', JSON.stringify(params.tags));
+    }
+
+    let filter = {};
+ 
+    if (params.comments.length) {
+        filter.commentsCount = {"$between": [1, 50]};
+    } 
+    if (params.search) {
+        filter.title = params.search;
+    }
+
+    searchParams.set('filter', JSON.stringify(filter));
+
+    if (params.sort) {
+        searchParams.set('sort', JSON.stringify([params.sort, 'ASC']));
+    }
+
+    searchParams.set('limit', LIMIT);
+
     xhr.open('GET', SERVER_URL + '/api/posts?' + searchParams.toString());
     xhr.send();
     xhr.onload = () =>{
@@ -155,6 +177,7 @@ function getParamsToSubmit() {
         }).value;
         setsearchParams(data);
         updateLinks();
+        getArticle (data);
     });
     updateLinks();
 }
