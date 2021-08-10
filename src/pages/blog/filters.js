@@ -82,10 +82,24 @@ function getArticle (params) {
     }
 
     let filter = {};
- 
     if (params.comments.length) {
-        filter.commentsCount = {"$between": [1, 50]};
+        let paramComment = params.comments;
+        let resultCommentStr = [];
+        let resultCommentNum = [];
+        paramComment.forEach(key => {  
+            resultCommentStr = resultCommentStr.concat((key.split('-')));
+        })
+        resultCommentStr.forEach (key => { 
+            resultCommentNum.push(+key);
+        })
+        let minComment =Math.min.apply( null, resultCommentNum);
+        let maxComment =Math.max.apply( null, resultCommentNum);
+        filter.commentsCount = {"$between": [minComment, maxComment]};
     } 
+    if (params.views.length) {
+        let views = (params.views).split('-');
+        filter.views = {"$between": [+views[0], +views[1]]};
+    }
     if (params.search) {
         filter.title = params.search;
     }
@@ -96,7 +110,7 @@ function getArticle (params) {
         searchParams.set('sort', JSON.stringify([params.sort, 'ASC']));
     }
 
-    searchParams.set('limit', LIMIT);
+    searchParams.set('limit', params.show);
 
     xhr.open('GET', SERVER_URL + '/api/posts?' + searchParams.toString());
     xhr.send();
@@ -247,17 +261,13 @@ function getParams() {
     } else {
         tag = searchParams.getAll('tags');
     }
-    if (!searchParams.getAll('comments').length) {
-        comment = ["1"];
-    } else {
-        comment = searchParams.getAll('comments');
-    }
+    comment = searchParams.getAll('comments');
     return {
         tags: tag,
-        views: searchParams.get('views') || "2",
+        views: searchParams.get('views') || "100-500",
         comments: comment,
-        show: searchParams.get('show') || "1",
-        sort: searchParams.get('sort') || "1",
+        show: searchParams.get('show') || "5",
+        sort: searchParams.get('sort') || "date",
         search: searchParams.get('search') || '',
         page: +searchParams.get('page') || 0,
     };
