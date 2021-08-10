@@ -9,7 +9,7 @@
     background: #FFFFFF;
     border: 2.5px solid #070707;
     padding: 33px 38px;
-    z-index: 10;
+    z-index: 12;
 
     &__wrapper-email {
         margin-bottom: 17px;
@@ -160,6 +160,7 @@
     .sing-up-modal {
         overflow-y: auto;
         padding: 55px 15px 30px;
+        height: 533px;
 
         &__block {
             margin: 0 auto;
@@ -180,5 +181,11 @@
             left: 5%;
         }
 
+    }
+}
+
+@media screen and (max-width:320px) {
+    .sing-up-modal {
+        border: none;
     }
 }

@@ -163,9 +163,47 @@ window.addEventListener('scroll', ()=> {
     modalControl ('.register-btn_js', '.sing-up-modal_js');
     modalControl ('.change-password-btn_js', '.edit-password-modal_js');
     modalControl ('.change-data-btn_js', '.edit-data-modal_js');
-
+    
 })();
 
+//mobile menu
+(function () {
+    const openMobileMenuBtn = document.querySelector('.mobile-menu-btn_js');
+    if (!openMobileMenuBtn) {
+        return;
+    }
+    const closeMobileMenuBtn = document.querySelector('.mobile-menu-close_js');
+    const mobileMenuWrapper = document.querySelector('.mobile-menu-wrapper_js');
+    const mobileMenu = document.querySelector('.mobile-menu_js');
+    modalControl ('.sign-in-moble-btn_js', '.sing-in-modal_js');
+    modalControl ('.register-moble-btn_js', '.sing-up-modal_js');
+    
+
+    openMobileMenuBtn.addEventListener('click', function () {
+        mobileMenuWrapper.classList.remove('mobile-menu-hidden');
+        mobileMenu.classList.remove('mobile-menu-hidden');
+    })
+    closeMobileMenuBtn.addEventListener('click', function () {
+        mobileMenuWrapper.classList.add('mobile-menu-hidden');
+        mobileMenu.classList.add('mobile-menu-hidden');
+    })
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            mobileMenuWrapper.classList.add('mobile-menu-hidden');
+            mobileMenu.classList.add('mobile-menu-hidden');
+        }
+    })
+    document.addEventListener("DOMContentLoaded", function()
+    {
+        window.onresize = function() {
+            if (window.outerWidth>486) {
+                mobileMenuWrapper.classList.add('mobile-menu-hidden');
+            mobileMenu.classList.add('mobile-menu-hidden');
+            }
+        }
+    })
+    
+})();
 
 //Validate form singin --------------------------------------------------------------------------------------------------------------------------------------------------------------
 (function () {

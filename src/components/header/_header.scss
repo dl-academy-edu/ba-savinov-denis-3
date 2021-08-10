@@ -21,21 +21,25 @@
     &__items {
 
         margin-left: 20px;
+
         button {
             border: none;
             background: transparent;
             padding: 0;
             cursor: pointer;
         }
+
         .header__active-link {
             color: #070707;
         }
+
         &:hover a,
         &:active a,
         &:hover button,
-        &:active button{
+        &:active button {
             color: #070707;
         }
+
         &-hidden {
             display: none;
         }
@@ -45,6 +49,7 @@
         margin: 0 auto 0 0;
 
     }
+
     &__item {
         font-family: var(--font-gilroy);
         font-weight: 700;
@@ -55,7 +60,28 @@
 
 }
 
+
+.mobile-menu-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(246, 246, 246, 0.99);
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 5;
+}
+
 .mobile-menu {
+    position: fixed;
+    overflow-y: auto;
+    right: 7px;
+    top: 50px;
+    height: 100%;
+    text-align: end;
+    display: block;
+    z-index: 10;
+
     &-open-btn {
         width: 32px;
         height: 20px;
@@ -72,6 +98,7 @@
         top: 50px;
         right: 20px;
     }
+
     &-btn-content {
         display: block;
         width: 32px;
@@ -91,41 +118,28 @@
             border-radius: 15px;
             left: 0;
         }
+
         &:after {
             top: 8px;
         }
+
         &:before {
             bottom: 8px;
         }
     }
-}
 
-.mobile-menu-wrapper {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(246, 246, 246, 0.99);
-    top: 0;
-    left: 0;
-    display: none;
-}
-.mobile-menu {
-    position: fixed;
-    overflow-y: auto;
-    right: 7px;
-    top: 50px;
-    text-align: end;
-    display: none;
     &__close-btn {
         background: transparent;
         border: none;
         cursor: pointer;
     }
+
     &__list {
         list-style-type: none;
         margin-top: 180px;
         margin-right: 13px;
     }
+
     &__item {
         font-family: var(--font-gilroy);
         font-weight: 700;
@@ -133,18 +147,22 @@
         line-height: 41px;
         color: #828282;
     }
+
     &__items {
         margin-bottom: 41px;
+
         button {
             border: none;
             background: transparent;
             padding: 0;
             cursor: pointer;
         }
+
         &-hidden {
             display: none;
         }
     }
+
     &-hidden {
         display: none;
     }
