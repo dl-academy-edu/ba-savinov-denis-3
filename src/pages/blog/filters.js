@@ -8,76 +8,75 @@ const SERVER_URL = 'https://academy.directlinedev.com';
     xhr.onload = () => {
         const tags = JSON.parse(xhr.response).data;
         const tagBox = document.querySelector('.tags__list');
-
         tags.forEach (tag => {
         const tagHTML = createTag (tag);
         tagBox.insertAdjacentHTML('beforeend', tagHTML);
         });
         getParamsToSubmit();
         getArticle (getParams());
-        arrovPaginationControl ();
     };
-    
 })();
 
-
 //Переключение страниц стрелками в пагинации
-function arrovPaginationControl () {
+function arrovPaginationControl (pages) {
     const paginationBtnNext = document.querySelector('.pagination-next_js');
     const paginationBtnPrev = document.querySelector('.pagination-prev_js');
-    
-    const links = document.querySelectorAll('.link_js');
-    let params = null;
-    let searchParams = new URLSearchParams();
+    paginationBtnPrev.disabled = false;
+    paginationBtnNext.disabled = false;
+    let params = getParams();
+    let searchParams = new URLSearchParams(location.search);
 
-    params = getParams();
     if (params.page === 0) {
         paginationBtnPrev.disabled = true;
     }
-    if (params.page === links.length-1) {
+    if (params.page >= pages-1) {
         paginationBtnNext.disabled = true;
     }
 
-    paginationBtnNext.addEventListener('click', () =>{
-       params = getParams();
-       paginationBtnNext.disabled = false;
-       if (params.page === links.length-1) {
-        paginationBtnNext.disabled = true;
-       } else {
-            params.page += 1;
-            searchParams.set('page', params.page);
-            console.log(params.toString());
-            // history.replaceState(null, document.title, '?' + searchParams.toString());
-            getArticle (params);
-            paginationBtnPrev.disabled = false;
-            if (params.page === links.length-1) {
-                paginationBtnNext.disabled = true;
-            }
-       }
-    });
-    paginationBtnPrev.addEventListener('click', () =>{
-        params = getParams();
+    function clickNext () {
         paginationBtnPrev.disabled = false;
-
-       if (params.page === 0) {
-        paginationBtnPrev.disabled = true;
-       } else {
-            params.page -= 1;
+        const numPageNext = +searchParams.getAll('page');
+        params = getParams();
+        if (numPageNext >= (pages -1)) {
+            paginationBtnNext.disabled = true;
+        } else {
+            params.page = 1+numPageNext;
             searchParams.set('page', params.page);
-            // history.replaceState(null, document.title, '?' + searchParams.toString());
-            getArticle (params);
-            paginationBtnNext.disabled = false;
-            if (params.page === 0) {
+            history.replaceState(null, document.title, '?' + searchParams.toString());
+            getArticle (getParams());
+            params = getParams();
+            if (params.page >= (pages -1)) {
+               paginationBtnNext.disabled = true;
+            }
+        }
+    }
+
+    function clickPrev () {
+        paginationBtnNext.disabled = false;
+        const numPagePrev = +searchParams.getAll('page');
+        params = getParams();
+        if (numPagePrev === 0) {
+            paginationBtnPrev.disabled = true;
+        } else {
+            params.page = numPagePrev - 1;
+            searchParams.set('page', params.page);
+            history.replaceState(null, document.title, '?' + searchParams.toString());
+            getArticle (getParams());
+            params = getParams();
+            if (params.page === 0 ) {
                 paginationBtnPrev.disabled = true;
             }
-       }
-    });
+        }
+    }
+
+    paginationBtnNext.addEventListener('click', clickNext, {once: true});
+    paginationBtnPrev.addEventListener('click', clickPrev, {once: true});
 }
 
 //получение и вывод статей
 function getArticle (params) {
     const xhr = new XMLHttpRequest();
-    let searchParams = new URLSearchParams();
+    let searchParams = new URLSearchParams(location.search);
     searchParams.set('v', '1.0.0'); 
     if (params.tags && Array.isArray(params.tags) && params.tags.length) {
         searchParams.set('tags', JSON.stringify(params.tags));
@@ -130,41 +129,19 @@ function getArticle (params) {
         articles.forEach (article => {
             dataArticle += createArticle(article);
         });
-        let articlePerPage = Math.ceil(getCountArticle/params.show);
+        let articlePage = Math.ceil(getCountArticle/params.show);
         const articleBox = document.querySelector('.article-result_js');
         articleBox.innerHTML = dataArticle;
 
-        for(let i=0; i < articlePerPage; i++) {
+        for(let i=0; i < articlePage; i++) {
             const linkLiElement = document.createElement('li');
             const link = createLinkElement(i);
             linkLiElement.appendChild(link);
             linksbox.insertAdjacentElement('beforeend', linkLiElement);
         }
+        arrovPaginationControl(articlePage);
     };
 }
-
-// управление пагинацией, выставление активной страницы в пагинации
-// function updateLinks() {
-//     const links = document.querySelectorAll('.link_js');
-//     let params = getParams();
-//     links.forEach(link => {
-//         link.classList.remove('pagination__item_active');
-//     });
-//     links[params.page].classList.add('pagination__item_active');
-//     links.forEach((link, index) => {
-//         link.addEventListener('click', (e) => {
-//             e.preventDefault();
-
-//             let searchParams = new URLSearchParams(location.search);
-//             let params = getParams();
-//             links[params.page].classList.remove('pagination__item_active');
-//             searchParams.set('page', index);
-//             links[index].classList.add('pagination__item_active');
-//             history.replaceState(null, document.title, '?' + searchParams.toString());
-//         });
-//     });
-// }
-
 
 //Создание ссылок пагинации
 function createLinkElement (page) {
@@ -318,26 +295,25 @@ function setsearchParams(data) {
 }
 
 // Получение search параметров из адресной строки и выставление параметров при 1 загрузке страницы
-function getParams() {
+function getParams(firstParams = false) {
     let searchParams = new URLSearchParams(location.search);
-
     let tag = null;
     let comment = null;
-    if (!searchParams.getAll('tags').length) {
-        tag = ["1", "6"];
-    } else {
-        tag = searchParams.getAll('tags');
-    }
-    comment = searchParams.getAll('comments');
-    return {
-        tags: tag,
-        views: searchParams.get('views') || "100-500",
-        comments: comment,
-        show: searchParams.get('show') || "5",
-        sort: searchParams.get('sort') || "date",
-        search: searchParams.get('search') || '',
-        page: +searchParams.get('page') || 0,
-    };
+        if (!searchParams.getAll('tags').length) {
+            tag = ["1", "6"];
+        } else {
+            tag = searchParams.getAll('tags');
+        }
+        comment = searchParams.getAll('comments');
+        return {
+            tags: tag,
+            views: searchParams.get('views') || "100-500",
+            comments: comment,
+            show: searchParams.get('show') || "5",
+            sort: searchParams.get('sort') || "date",
+            search: searchParams.get('search') || '',
+            page: +searchParams.get('page') || 0,
+        };
 };
 
 //установка данных из объекта data в форму поиска
