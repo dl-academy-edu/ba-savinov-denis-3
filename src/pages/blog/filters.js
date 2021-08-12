@@ -1,5 +1,4 @@
 const SERVER_URL = 'https://academy.directlinedev.com';
-const LIMIT = 5;
 
 //XHR для тегов
 (function () {
@@ -21,6 +20,8 @@ const LIMIT = 5;
     
 })();
 
+
+//Переключение страниц стрелками в пагинации
 function arrovPaginationControl () {
     const paginationBtnNext = document.querySelector('.pagination-next_js');
     const paginationBtnPrev = document.querySelector('.pagination-prev_js');
@@ -43,14 +44,15 @@ function arrovPaginationControl () {
        if (params.page === links.length-1) {
         paginationBtnNext.disabled = true;
        } else {
-        params.page += 1;
-        searchParams.set('page', params.page);
-        history.replaceState(null, document.title, '?' + searchParams.toString());
-        updateLinks();
-        paginationBtnPrev.disabled = false;
-        if (params.page === links.length-1) {
-            paginationBtnNext.disabled = true;
-        } 
+            params.page += 1;
+            searchParams.set('page', params.page);
+            console.log(params.toString());
+            // history.replaceState(null, document.title, '?' + searchParams.toString());
+            getArticle (params);
+            paginationBtnPrev.disabled = false;
+            if (params.page === links.length-1) {
+                paginationBtnNext.disabled = true;
+            }
        }
     });
     paginationBtnPrev.addEventListener('click', () =>{
@@ -60,14 +62,14 @@ function arrovPaginationControl () {
        if (params.page === 0) {
         paginationBtnPrev.disabled = true;
        } else {
-        params.page -= 1;
-        searchParams.set('page', params.page);
-        history.replaceState(null, document.title, '?' + searchParams.toString());
-        updateLinks();
-        paginationBtnNext.disabled = false;
-        if (params.page === 0) {
-            paginationBtnPrev.disabled = true;
-        }
+            params.page -= 1;
+            searchParams.set('page', params.page);
+            // history.replaceState(null, document.title, '?' + searchParams.toString());
+            getArticle (params);
+            paginationBtnNext.disabled = false;
+            if (params.page === 0) {
+                paginationBtnPrev.disabled = true;
+            }
        }
     });
 }
@@ -112,18 +114,83 @@ function getArticle (params) {
 
     searchParams.set('limit', params.show);
 
+    if (+params.page) {
+        searchParams.set('offset', +params.page * params.show);
+    }
+
     xhr.open('GET', SERVER_URL + '/api/posts?' + searchParams.toString());
     xhr.send();
     xhr.onload = () =>{
         const articles = JSON.parse(xhr.response).data;
+        const getCountArticle = JSON.parse(xhr.response).count;
         let dataArticle = '';
+        const linksbox = document.querySelector('.pagination__list');
+        linksbox.innerHTML = '';
+        
         articles.forEach (article => {
             dataArticle += createArticle(article);
         });
-
+        let articlePerPage = Math.ceil(getCountArticle/params.show);
         const articleBox = document.querySelector('.article-result_js');
         articleBox.innerHTML = dataArticle;
+
+        for(let i=0; i < articlePerPage; i++) {
+            const linkLiElement = document.createElement('li');
+            const link = createLinkElement(i);
+            linkLiElement.appendChild(link);
+            linksbox.insertAdjacentElement('beforeend', linkLiElement);
+        }
     };
+}
+
+// управление пагинацией, выставление активной страницы в пагинации
+// function updateLinks() {
+//     const links = document.querySelectorAll('.link_js');
+//     let params = getParams();
+//     links.forEach(link => {
+//         link.classList.remove('pagination__item_active');
+//     });
+//     links[params.page].classList.add('pagination__item_active');
+//     links.forEach((link, index) => {
+//         link.addEventListener('click', (e) => {
+//             e.preventDefault();
+
+//             let searchParams = new URLSearchParams(location.search);
+//             let params = getParams();
+//             links[params.page].classList.remove('pagination__item_active');
+//             searchParams.set('page', index);
+//             links[index].classList.add('pagination__item_active');
+//             history.replaceState(null, document.title, '?' + searchParams.toString());
+//         });
+//     });
+// }
+
+
+//Создание ссылок пагинации
+function createLinkElement (page) {
+    const linkElement = document.createElement('a');
+    linkElement.classList.add('pagination__item');
+    linkElement.classList.add('link_js');
+    linkElement.innerText = page + 1;
+    linkElement.href = '?page=' + page;
+    let params = getParams();
+    if (page === +params.page) {
+        linkElement.classList.add('pagination__item_active');
+    }
+
+    linkElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        const links = document.querySelectorAll('.link_js');
+        let searchParams = new URLSearchParams(location.search);
+        let params = getParams();
+        links[params.page].classList.remove('pagination__item_active');
+        searchParams.set('page', page);
+        links[page].classList.add('pagination__item_active');
+        history.replaceState(null, document.title, '?' + searchParams.toString());
+        getArticle (getParams());
+    })
+
+    return linkElement;
 }
 
 //создание разметки статьи
@@ -169,6 +236,7 @@ function getParamsToSubmit() {
     setDataToFilter(getParams());
 
     form.addEventListener('submit', event => {
+
         event.preventDefault();
         let data = {
             page: 0,
@@ -190,16 +258,14 @@ function getParamsToSubmit() {
             value: null
         }).value;
         setsearchParams(data);
-        updateLinks();
         getArticle (data);
     });
-    updateLinks();
 }
 
 
 //создание html кода 1 тега чекбокса в фильтре
 
-function createTag ({id, name, color}) {
+function createTag ({id, color}) {
     let tagChecked = '';
     if (id === 1 || id === 6) {
         tagChecked = 'checked';
@@ -225,6 +291,7 @@ function createTag ({id, name, color}) {
 //Выставление search параметров в адресную строку
 function setsearchParams(data) {
     let searchParams = new URLSearchParams();
+    
     searchParams.set('search', data.search);
     data.tags.forEach(item => {
         searchParams.append('tags', item);
@@ -272,28 +339,6 @@ function getParams() {
         page: +searchParams.get('page') || 0,
     };
 };
-
-// управление пагинацией, выставление активной страницы в пагинации
-function updateLinks() {
-    const links = document.querySelectorAll('.link_js');
-    let params = getParams();
-    links.forEach(link => {
-        link.classList.remove('pagination__item_active');
-    });
-    links[params.page].classList.add('pagination__item_active');
-    links.forEach((link, index) => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            let searchParams = new URLSearchParams(location.search);
-            let params = getParams();
-            links[params.page].classList.remove('pagination__item_active');
-            searchParams.set('page', index);
-            links[index].classList.add('pagination__item_active');
-            history.replaceState(null, document.title, '?' + searchParams.toString());
-        });
-    });
-}
 
 //установка данных из объекта data в форму поиска
 function setDataToFilter(data) {
