@@ -123,6 +123,14 @@ button[class*="__btn_close"]:focus svg {
     fill: #070707;
 }
 
+label+input:not([type="checkbox"]),
+label+textarea {
+    &:hover {
+        cursor: pointer;
+        border: 2.5px solid #828282;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .modal-overlay {
         background-color: #fff;
