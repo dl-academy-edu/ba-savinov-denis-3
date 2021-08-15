@@ -6,6 +6,7 @@
     box-sizing: border-box;
     max-width: 680px;
     width: 100%;
+    height: 504px;
     background: #FFFFFF;
     border: 2.5px solid #070707;
     padding: 33px 38px;
@@ -97,9 +98,18 @@
     }
 }
 
+@media screen and (max-width:768px) {
+    .edit-data-modal {
+        &__btn_close {
+            top: -39px;
+            right: -12px;
+        }
+    }
+}
+
 @media screen and (max-width:767px) {
     .edit-data-modal {
-        max-height: unset;
+        height: 100%;
         overflow-y: auto;
         padding: 58px 17px 30px;
 
@@ -120,6 +130,7 @@
 
 @media screen and (max-width:320px) {
     .edit-data-modal {
+        border: none;
         &__block {
             max-width: 280px;
         }

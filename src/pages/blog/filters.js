@@ -1,10 +1,12 @@
 const SERVER_URL = 'https://academy.directlinedev.com';
+const preloader = document.querySelector('.spinner_js');
 
 //XHR для тегов
 (function () {
     const xhr = new XMLHttpRequest();
     xhr.open('GET', SERVER_URL + '/api/tags');
     xhr.send();
+    preloader.classList.remove('hidden');
     xhr.onload = () => {
         const tags = JSON.parse(xhr.response).data;
         const tagBox = document.querySelector('.tags__list');
@@ -14,6 +16,7 @@ const SERVER_URL = 'https://academy.directlinedev.com';
         });
         getParamsToSubmit();
         getArticle (getParams());
+        preloader.classList.add('hidden');
     };
 })();
 
@@ -119,6 +122,7 @@ function getArticle (params) {
 
     xhr.open('GET', SERVER_URL + '/api/posts?' + searchParams.toString());
     xhr.send();
+    preloader.classList.remove('hidden');
     xhr.onload = () =>{
         const articles = JSON.parse(xhr.response).data;
         const getCountArticle = JSON.parse(xhr.response).count;
@@ -140,6 +144,7 @@ function getArticle (params) {
             linksbox.insertAdjacentElement('beforeend', linkLiElement);
         }
         arrovPaginationControl(articlePage);
+        preloader.classList.add('hidden');
     };
 }
 
