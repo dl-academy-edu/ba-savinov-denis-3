@@ -306,11 +306,21 @@ window.addEventListener('scroll', ()=> {
             const data = {
                 email: email.value,
                 password: password.value,
-                age: age.value,
+                age: +age.value,
                 name: name.value,
-                sname: sname.value,
+                surname: sname.value,
                 location: location.value,
             };
+            sendrequest({
+                method: 'POST',
+                url: '/api/users',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(res => console.log(res));
         }
     })
 })();
