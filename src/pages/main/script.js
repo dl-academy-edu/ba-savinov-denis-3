@@ -258,6 +258,7 @@ window.addEventListener('scroll', ()=> {
 //Validate form register --------------------------------------------------------------------------------------------------------------------------------------------------------------
 (function () {
     const registerForm = document.forms.registerForm;
+    const modalWindow = document.querySelector('.sing-up-modal_js');
     if (!registerForm)
     {
         return;
@@ -303,6 +304,7 @@ window.addEventListener('scroll', ()=> {
 
         if (!Object.keys(valideMessage[0]).length)
         {
+
             const data = {
                 email: email.value,
                 password: password.value,
@@ -320,12 +322,64 @@ window.addEventListener('scroll', ()=> {
                 }
             })
                 .then(res => res.json())
-                .then(res => console.log(res));
+                .then(res => {
+                    if (res.success) {
+                        event.target.reset();
+                        clearMessage (modalWindow);
+                        visualMessageSendForm(true, modalWindow);
+                    }else {
+                        event.target.reset();
+                        clearMessage (modalWindow);
+                        visualMessageSendForm(false, modalWindow);
+                    }
+                })
+                .catch(err => {
+                    event.target.reset();
+                    clearMessage (modalWindow);
+                    visualMessageSendForm(false, modalWindow);
+                })
         }
     })
 })();
 //End Validate form register --------------------------------------------------------------------------------------------------------------------------------------------------------------
+function clearMessage (messageForm) {
+    const msgError = messageForm.querySelectorAll('.message-error');
+    const msgNoError = messageForm.querySelectorAll('.message-noError');
+    const inputNoError = messageForm.querySelectorAll('.no-error');
+    const inputError = messageForm.querySelectorAll('.error');
+    const btnMsgValid = messageForm.querySelector('.btn-valid');
+    const btnMsgError = messageForm.querySelector('.btn-error');
 
+    if (btnMsgValid) {
+        btnMsgValid.classList.remove('btn-valid');
+        btnMsgValid.disabled = true;
+    }
+    if (btnMsgError) {
+        btnMsgError.classList.remove('btn-error');
+        btnMsgValid.disabled = true;
+    }
+
+    if (msgError.length) {
+        msgError.forEach(msg => {
+            msg.remove();
+        })
+    }
+    if (msgNoError.length) {
+        msgNoError.forEach(msg => {
+            msg.remove();
+        })
+    }
+    if (inputNoError.length) {
+        inputNoError.forEach(msg => {
+            msg.classList.remove('no-error');
+        })
+    }
+    if (inputError.length) {
+        inputError.forEach(msg => {
+            msg.classList.remove('error');
+        })
+    }
+}
 
 //Validate form message --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -378,13 +432,45 @@ window.addEventListener('scroll', ()=> {
 
         if (!Object.keys(valideMessage[0]).length)
         {
-            const data = {
+            let bodyjson = JSON.stringify({
                 email: email.value,
                 phone: phone.value,
                 name: name.value,
-                subject: subject.value,
-                message: message.value,
+                message: message.value
+            });
+            const data = {
+                to: subject.value,
+                body: bodyjson
             }
+
+            sendrequest({
+                method: 'POST',
+                url: '/api/emails',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    if (res.success) {
+                        console.log (res);
+                        // event.target.reset();
+                        // clearMessage (modalWindow);
+                        // visualMessageSendForm(true, modalWindow);
+                    }else {
+                        console.log (res);
+                        // event.target.reset();
+                        // clearMessage (modalWindow);
+                        // visualMessageSendForm(false, modalWindow);
+                    }
+                })
+                .catch(err => {
+                    console.log (err);
+                    // event.target.reset();
+                    // clearMessage (modalWindow);
+                    // visualMessageSendForm(false, modalWindow);
+                })
         }
     })
 })();
@@ -746,5 +832,56 @@ function modalControl (classBtnOpen, classModal) {
                 modalOverlay.classList.add('hidden');
             }
         })
+    }
+}
+
+function visualMessageSendForm(successOrError, form) {
+    form.classList.add('hidden');
+    const errorMessage = document.querySelector('.wrapper-error_js');
+    const overlay = document.querySelector('.modal-overlay_js');
+    if (!errorMessage || !overlay) {
+        return;
+    }
+    const errorMessageBtn = errorMessage.querySelector('.close-error-btn_js');
+    const successMessage = document.querySelector('.wrapper-success_js');
+    const successMessageBtn = successMessage.querySelector('.close-success-btn_js');
+
+
+
+    if (successOrError) {
+        successMessage.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+        successMessageBtn.addEventListener('click', () => {
+            successMessage.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }, {once:true});
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                successMessage.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        })
+        setTimeout( ()=> {
+            successMessage.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }, 2000)
+    }
+    if (!successOrError) {
+        errorMessage.classList.remove('hidden');
+        overlay.classList.remove('hidden');
+        errorMessageBtn.addEventListener('click', () => {
+            errorMessage.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }, {once:true});
+        window.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                errorMessage.classList.add('hidden');
+                overlay.classList.add('hidden');
+            }
+        })
+        setTimeout( ()=> {
+            errorMessage.classList.add('hidden');
+            overlay.classList.add('hidden');
+        }, 2000)
     }
 }
