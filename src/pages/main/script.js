@@ -385,7 +385,7 @@ function clearMessage (messageForm) {
 
 (function () {
     const messageForm = document.forms.messageForm;
-
+    const messageModal = document.querySelector('.message-modal_js');
     if (!messageForm)
     {
         return;
@@ -455,21 +455,21 @@ function clearMessage (messageForm) {
                 .then(res => {
                     if (res.success) {
                         console.log (res);
-                        // event.target.reset();
-                        // clearMessage (modalWindow);
-                        // visualMessageSendForm(true, modalWindow);
+                        event.target.reset();
+                        clearMessage (messageModal);
+                        visualMessageSendForm(true, messageModal);
                     }else {
                         console.log (res);
-                        // event.target.reset();
-                        // clearMessage (modalWindow);
-                        // visualMessageSendForm(false, modalWindow);
+                        event.target.reset();
+                        clearMessage (messageModal);
+                        visualMessageSendForm(false, messageModal);
                     }
                 })
                 .catch(err => {
                     console.log (err);
-                    // event.target.reset();
-                    // clearMessage (modalWindow);
-                    // visualMessageSendForm(false, modalWindow);
+                    event.target.reset();
+                    clearMessage (messageModal);
+                    visualMessageSendForm(false, messageModal);
                 })
         }
     })
