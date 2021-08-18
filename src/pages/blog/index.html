@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../common.min.css">
     <link rel="stylesheet" href="style.min.css">
-    <link rel="stylesheet" href="spinners.min.css">
-    <link rel="shortcut icon" href="/static/images/favicon.ico">
+    <link rel="shortcut icon" href="../../static/images/favicon.ico">
     <meta name="description"
         content="On this site, I will tell you about myself, my professional skills, and show you a portfolio of developed projects. Here you will find the contact information for contacting me.">
     <title>My blog</title>
@@ -153,10 +152,7 @@
     @@include('register-modal/index.html')
     @@include('message-modal/index.html')
     @@include('message-send-form/index.html')
-    <div class="spinner-wrapper hidden spinner_js">
-        <div class="hexdots-loader">
-        </div>
-    </div>
+    @@include('spinner/index.html')
     <script src="../../common.js"></script>
     <script src="../../script.js"></script>
     <script src="./filters.js"></script>

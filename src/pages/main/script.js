@@ -313,6 +313,7 @@ window.addEventListener('scroll', ()=> {
                 surname: sname.value,
                 location: location.value,
             };
+            controlSpinner(modalWindow);
             sendrequest({
                 method: 'POST',
                 url: '/api/users',
@@ -323,6 +324,7 @@ window.addEventListener('scroll', ()=> {
             })
                 .then(res => res.json())
                 .then(res => {
+                    controlSpinner(modalWindow, false);
                     if (res.success) {
                         event.target.reset();
                         clearMessage (modalWindow);
@@ -334,6 +336,7 @@ window.addEventListener('scroll', ()=> {
                     }
                 })
                 .catch(err => {
+                    controlSpinner(modalWindow, false);
                     event.target.reset();
                     clearMessage (modalWindow);
                     visualMessageSendForm(false, modalWindow);
@@ -442,7 +445,7 @@ function clearMessage (messageForm) {
                 to: subject.value,
                 body: bodyjson
             }
-
+            controlSpinner(messageModal);
             sendrequest({
                 method: 'POST',
                 url: '/api/emails',
@@ -453,20 +456,19 @@ function clearMessage (messageForm) {
             })
                 .then(res => res.json())
                 .then(res => {
+                    controlSpinner(messageModal, false);
                     if (res.success) {
-                        console.log (res);
                         event.target.reset();
                         clearMessage (messageModal);
                         visualMessageSendForm(true, messageModal);
                     }else {
-                        console.log (res);
                         event.target.reset();
                         clearMessage (messageModal);
                         visualMessageSendForm(false, messageModal);
                     }
                 })
                 .catch(err => {
-                    console.log (err);
+                    controlSpinner(messageModal, false);
                     event.target.reset();
                     clearMessage (messageModal);
                     visualMessageSendForm(false, messageModal);
@@ -590,7 +592,7 @@ function clearMessage (messageForm) {
                 location: location.value,
                 file: fileInput.value,
             }
-            console.log (data);
+            
     })
 })();
 //End Validate form editdata --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -835,6 +837,17 @@ function modalControl (classBtnOpen, classModal) {
     }
 }
 
+function controlSpinner (classForm, onOff = true) {
+    const spinner = classForm.querySelector('.spinner_js');
+    if (!spinner) return;
+    if (onOff) {
+        spinner.classList.remove('hidden');
+    } else {
+        spinner.classList.add('hidden');
+    }
+
+}
+
 function visualMessageSendForm(successOrError, form) {
     form.classList.add('hidden');
     const errorMessage = document.querySelector('.wrapper-error_js');
@@ -845,8 +858,6 @@ function visualMessageSendForm(successOrError, form) {
     const errorMessageBtn = errorMessage.querySelector('.close-error-btn_js');
     const successMessage = document.querySelector('.wrapper-success_js');
     const successMessageBtn = successMessage.querySelector('.close-success-btn_js');
-
-
 
     if (successOrError) {
         successMessage.classList.remove('hidden');
