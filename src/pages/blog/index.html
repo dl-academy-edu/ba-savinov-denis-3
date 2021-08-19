@@ -152,7 +152,9 @@
     @@include('register-modal/index.html')
     @@include('message-modal/index.html')
     @@include('message-send-form/index.html')
-    @@include('spinner/index.html')
+    @@include('spinner/index.html', {
+    'class': 'blog-spinner_js'
+    })
     <script src="../../common.js"></script>
     <script src="../../script.js"></script>
     <script src="./filters.js"></script>

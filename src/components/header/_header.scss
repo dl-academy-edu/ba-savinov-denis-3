@@ -39,10 +39,6 @@
         &:active button {
             color: #070707;
         }
-
-        &-hidden {
-            display: none;
-        }
     }
 
     &__items:first-child {
@@ -158,9 +154,6 @@
             cursor: pointer;
         }
 
-        &-hidden {
-            display: none;
-        }
     }
 
     &-hidden {

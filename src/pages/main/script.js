@@ -1,3 +1,5 @@
+renderMenu ();
+
 //button to top pages
 (function () {
 const buttonUp = document.querySelector('.to-up-btn_js');
@@ -208,6 +210,7 @@ window.addEventListener('scroll', ()=> {
 //Validate form singin --------------------------------------------------------------------------------------------------------------------------------------------------------------
 (function () {
     const formSignIn = document.forms.signInform;
+    const singInModal = document.querySelector('.sing-in-modal_js');
     if (!formSignIn){
         return;
     }
@@ -250,6 +253,37 @@ window.addEventListener('scroll', ()=> {
                 email: email.value,
                 password: password.value,
             }
+            controlSpinner(singInModal);
+            sendrequest({
+                method: 'POST',
+                url: '/api/users/login',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(res => res.json())
+                .then(res => {
+                    controlSpinner(singInModal, false);
+                    if (res.success) {
+                        localStorage.setItem('token',res.data.token);
+                        localStorage.setItem('userId', res.data.userId);
+                        event.target.reset();
+                        clearMessage (singInModal);
+                        visualMessageSendForm(true, singInModal);
+                        renderMenu();
+                        location.pathname = '/pages/profile';
+                    }else {
+                        throw res;
+                    }
+                })
+                .catch(err => {
+                    controlSpinner(singInModal, false);
+                    event.target.reset();
+                    clearMessage (singInModal);
+                    visualMessageSendForm(false, singInModal);
+                    alert(err._message);
+                })
         }
     })
 })();
@@ -327,25 +361,24 @@ window.addEventListener('scroll', ()=> {
                     controlSpinner(modalWindow, false);
                     if (res.success) {
                         event.target.reset();
-                        clearMessage (modalWindow);
+                        clearMessage (modalWindow, true);
                         visualMessageSendForm(true, modalWindow);
                     }else {
-                        event.target.reset();
-                        clearMessage (modalWindow);
-                        visualMessageSendForm(false, modalWindow);
+                        throw res;
                     }
                 })
                 .catch(err => {
                     controlSpinner(modalWindow, false);
                     event.target.reset();
-                    clearMessage (modalWindow);
+                    clearMessage (modalWindow, true);
                     visualMessageSendForm(false, modalWindow);
+                    alert(JSON.stringify(err.errors));
                 })
         }
     })
 })();
 //End Validate form register --------------------------------------------------------------------------------------------------------------------------------------------------------------
-function clearMessage (messageForm) {
+function clearMessage (messageForm, disabledBtn = false) {
     const msgError = messageForm.querySelectorAll('.message-error');
     const msgNoError = messageForm.querySelectorAll('.message-noError');
     const inputNoError = messageForm.querySelectorAll('.no-error');
@@ -355,11 +388,16 @@ function clearMessage (messageForm) {
 
     if (btnMsgValid) {
         btnMsgValid.classList.remove('btn-valid');
-        btnMsgValid.disabled = true;
+        if (disabledBtn) {
+            btnMsgValid.disabled = true;
+        }
+
     }
     if (btnMsgError) {
         btnMsgError.classList.remove('btn-error');
-        btnMsgValid.disabled = true;
+        if (disabledBtn) {
+            btnMsgValid.disabled = true;
+        }
     }
 
     if (msgError.length) {
@@ -459,19 +497,18 @@ function clearMessage (messageForm) {
                     controlSpinner(messageModal, false);
                     if (res.success) {
                         event.target.reset();
-                        clearMessage (messageModal);
+                        clearMessage (messageModal, true);
                         visualMessageSendForm(true, messageModal);
                     }else {
-                        event.target.reset();
-                        clearMessage (messageModal);
-                        visualMessageSendForm(false, messageModal);
+                        throw res;
                     }
                 })
                 .catch(err => {
                     controlSpinner(messageModal, false);
                     event.target.reset();
-                    clearMessage (messageModal);
+                    clearMessage (messageModal, true);
                     visualMessageSendForm(false, messageModal);
+                    alert(err._message);
                 })
         }
     })

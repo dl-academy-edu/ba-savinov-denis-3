@@ -1,5 +1,5 @@
 const SERVER_URL = 'https://academy.directlinedev.com';
-const preloader = document.querySelector('.spinner_js');
+const preloader = document.querySelector('.blog-spinner_js.spinner_js');
 
 //XHR для тегов
 (function () {
