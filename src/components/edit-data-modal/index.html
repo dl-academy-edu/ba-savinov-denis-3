@@ -3,29 +3,29 @@
     <form action="#" class="edit-data-modal__form" method="POST" name="editDataForm">
         <fieldset class="edit-data-modal__wrapper-email">
             <label class="edit-data-modal__email" for="edit-data-email">Email</label>
-            <input type="text" id="edit-data-email" name="email" placeholder="larioshkina@gmail.com">
+            <input type="text" id="edit-data-email" name="email" >
         </fieldset>
         <fieldset class="edit-data-modal__wrapper">
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__name" for="edit-data-name">Name</label>
-                <input type="text" id="edit-data-name" name="name" placeholder="Ksenia">
+                <input type="text" id="edit-data-name" name="name" >
             </div>
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__sname" for="edit-data-sname">Surname</label>
-                <input type="text" id="edit-data-sname" name="sname" placeholder="Larioshkina">
+                <input type="text" id="edit-data-sname" name="surname" >
             </div>
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__location" for="edit-data-location">Location</label>
-                <input type="text" id="edit-data-location" name="location" placeholder="Moscow">
+                <input type="text" id="edit-data-location" name="location" >
             </div>
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__age" for="edit-data-age">Age</label>
-                <input type="number" id="edit-data-age" name="age" placeholder="17">
+                <input type="number" id="edit-data-age" name="age" >
             </div>
             <div class="edit-data-modal__block">
                 <label class="edit-data-modal__file" for="edit-data-file">Profile picture</label>
                 <label class="edit-data-modal__fake-input fakeFile-input_js" for="edit-data-file">file-name.png</label>
-                <input class="edit-data-modal__input-hidden" type="file" id="edit-data-file" accept=".jpg,.jpeg,.png,.webp" name="file">
+                <input class="edit-data-modal__input-hidden" type="file" id="edit-data-file" accept=".jpg,.jpeg,.png,.webp" name="avatar">
             </div>
         </fieldset>
         @@include('button/index.html', {

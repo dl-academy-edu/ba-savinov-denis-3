@@ -22,24 +22,24 @@
 
     <main class="container">
         <h1 class="page__title">My profile</h1>
-        <section class="profile">
+        <section class="profile profile_js">
             <h2 class="visually-hidden">Profile data</h2>
             <div class="profile__image-container">
-                <img class="profile__image" src="../../static/images/no-photo.svg" alt="Blanck foto">
+                <img class="profile__image profile-image_js" src="../../static/images/no-photo.jpg" alt="Profile foto">
             </div>
             <div class="profile__content">
                 <ul class="profile__data">
                     <li class="profile__item">
                         <strong class="profile__user-name-title">Name:</strong>
-                        <span class="profile__user-name">Oksana</span>
+                        <span class="profile__user-name profile-name_js"></span>
                     </li>
                     <li class="profile__item">
                         <strong class="profile__user-surname-title">Surname:</strong>
-                        <span class="profile__user-surname">Larioshkina</span>
+                        <span class="profile__user-surname profile-sname_js"></span>
                     </li>
                     <li class="profile__item">
                         <strong class="profile__user-email-title">Email:</strong>
-                        <span class="profile__user-email">larioshkina@gmail.com</span>
+                        <span class="profile__user-email profile-email_js"></span>
                     </li>
                     <li class="profile__item">
                         <strong class="profile__user-password-title">Password:</strong>
@@ -47,11 +47,11 @@
                     </li>
                     <li class="profile__item">
                         <strong class="profile__user-location-title">Location:</strong>
-                        <span class="profile__user-location">Tolyatti</span>
+                        <span class="profile__user-location profile-location_js"></span>
                     </li>
                     <li class="profile__item">
                         <strong class="profile__user-age-title">Age:</strong>
-                        <span class="profile__user-age">23</span>
+                        <span class="profile__user-age profile-age_js"></span>
                     </li>
                 </ul>
                 @@include('button/index.html', {
@@ -69,7 +69,7 @@
                     'disable': ''
                 })
                 @@include('button/index.html', {
-                    'class':'profile__delete-account-btn',
+                    'class':'profile__delete-account-btn delete-user-btn_js',
                     'type':'button',
                     'text-btn':'Delete account',
                     'id': 'delete-account-btn',
@@ -84,8 +84,12 @@
     @@include('sign-in-modal/index.html')
     @@include('register-modal/index.html')
     @@include('message-send-form/index.html')
+    @@include('spinner/index.html', {
+    'class': 'profile-spinner_js'
+    })
     <script src="../../common.js"></script>
     <script src="../../script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
