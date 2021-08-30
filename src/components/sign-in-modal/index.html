@@ -1,0 +1,27 @@
+<div class="sing-in-modal hidden sing-in-modal_js">
+    <h2 class="visually-hidden">Sing in Window</h2>
+    <form action="#" class="sing-in-modal__form" name="signInform" method="POST">
+        <fieldset class="sing-in-modal__wrapper">
+            <label class="sing-in-modal__email" for="sing-in-email">Email <sup>*</sup></label>
+            <input type="text" id="sing-in-email" name="email">
+        </fieldset>
+        <fieldset class="sing-in-modal__wrapper">
+            <label class="sing-in-modal__password" for="sing-in-password">Password <sup>*</sup></label>
+            <input type="password" id="sing-in-password" name="password">
+        </fieldset>
+        @@include('button/index.html', {
+            'class':'sing-in-modal__submit-btn sing-in-btn_js',
+            'type':'submit',
+            'text-btn':'Log in',
+            'id': 'sing-in-modal__submit-btn',
+            'disable': ''
+        })
+    </form>
+    <button class="sing-in-modal__btn_close modal-btn-close_js" type="button" aria-label="sing in close">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="#828282" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill=""/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill=""/>
+        </svg>
+    </button>
+    @@include('spinner/index.html')
+</div>

@@ -1,0 +1,93 @@
+.sing-in-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    max-width: 370px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 2.5px solid #070707;
+    padding: 33px 38px;
+    z-index: 12;
+
+    &__wrapper {
+        margin-bottom: 17px;
+    }
+
+    &__form {
+        label {
+            position: relative;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            display: inline-block;
+        }
+
+        input {
+            font-family: var(--font-gilroy);
+            font-size: 18px;
+            line-height: 21px;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2.5px solid #E5E5E5;
+            max-width: 290px;
+            width: 100%;
+        }
+    }
+
+    sup {
+        color: #EB3617;
+        font-size: 17px;
+        position: absolute;
+        right: -9px;
+        top: 2px;
+    }
+
+    &__email,
+    &__password {
+        margin-bottom: 6px;
+    }
+
+    &__submit-btn {
+        margin-top: 13px;
+    }
+
+    &__btn_close {
+        position: absolute;
+        top: -4px;
+        right: -44px;
+        cursor: pointer;
+        background: transparent;
+        border: none;
+        transition: .4s;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .sing-in-modal {
+        overflow-y: auto;
+        max-height: 340px;
+        padding: 59px 38px 30px;
+
+        &__btn_close {
+            top: 11px;
+            left: 28px;
+        }
+    }
+}
+
+@media screen and (max-width:320px) {
+
+    .sing-in-modal {
+        max-width: unset;
+        max-height: unset;
+        border: none;
+        padding: 54px 38px;
+
+        &__btn_close {
+            top: 11px;
+            left: 28px;
+        }
+    }
+}

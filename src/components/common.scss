@@ -1,0 +1,153 @@
+body {
+    font-family: var(--font-gilroy);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #070707;
+    margin: 0;
+}
+
+a,
+div,
+h1,
+h2,
+h3,
+img,
+p,
+span,
+ul,
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 0;
+    height: 0;
+    font-size: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(246, 246, 246, 0.99);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+}
+
+.hidden {
+    display: none;
+}
+
+.message {
+    &-error {
+        font-family: var(--font-gilroy);
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #EB3617;
+    }
+
+    &-noError {
+        font-family: var(--font-gilroy);
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        color: #03BC3C;
+    }
+}
+
+
+
+.error.input-invalide {
+    border: 2.5px solid #EB3617;
+    box-sizing: border-box;
+}
+
+.no-error.input-valide {
+    border: 2.5px solid #03BC3C;
+    box-sizing: border-box;
+}
+
+.button {
+    &.btn-error {
+        background-color: #fff;
+        color: #EB3617;
+        border: 2.5px solid #EB3617;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: #EB3617;
+        }
+    }
+
+    &.btn-valid {
+        background-color: #fff;
+        color: #03BC3C;
+        border: 2.5px solid #03BC3C;
+
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: #03BC3C;
+            border: 2.5px solid #03BC3C;
+        }
+    }
+
+
+}
+
+
+button[class*="__btn_close"]:hover svg,
+button[class*="__btn_close"]:focus svg {
+    fill: #070707;
+}
+
+label+input:not([type="checkbox"]),
+label+textarea {
+    &:hover {
+        cursor: pointer;
+        border: 2.5px solid #828282;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .modal-overlay {
+        background-color: #fff;
+    }
+}
+
+
+
+@import "./header/header";
+@import "./footer/footer";
+@import "./variables.scss";
+@import "./button/button";
+@import "./up-btn/up-btn";
+@import "./sign-in-modal/sign-in-modal";
+@import "./register-modal/register-modal";
+@import "./message-modal/message-modal";
+@import "./edit-password-modal/edit-password-modal";
+@import "./edit-data-modal/edit-data-modal";
+@import "./message-send-form/message-send-form";
+@import "spinner/spinner";

@@ -1,0 +1,45 @@
+<div class="message-modal hidden message-modal_js">
+    <h2 class="visually-hidden">Send message Window</h2>
+    <form action="#" class="message-modal__form" method="POST" name="messageForm">
+        <fieldset class="message-modal__wrapper">
+            <div class="message-modal__block">
+                <label class="message-modal__name" for="message-modal-name">What is your name? <sup>*</sup></label>
+                <input type="text" id="message-modal-name" name="name">
+            </div>
+            <div class="message-modal__block">
+                <label class="message-modal__subject" for="message-modal-subject">Message subject <sup>*</sup></label>
+                <input type="text" id="message-modal-subject" name="subject">
+            </div>
+            <div class="message-modal__block">
+                <label class="message-modal__email" for="message-modal-email">Your Email <sup>*</sup></label>
+                <input type="text" id="message-modal-email" name="email">
+            </div>
+            <div class="message-modal__block">
+                <label class="message-modal__phone" for="message-modal-phone">Your mobile phone <sup>*</sup></label>
+                <input type="tel" id="message-modal-phone" name="phone">
+            </div>
+        </fieldset>
+        <fieldset class="message-modal__wrapper message-modal__text">
+            <label for="message-modal-text">What do you want to discuss with me?</label>
+            <textarea id="message-modal-text" name="message" rows="6"></textarea>
+        </fieldset>
+        <fieldset class="message-modal__wrapper-agreement">
+            <input class="input-check" type="checkbox" name="agreement" id="message-agreement">
+            <label for="message-agreement">Clicking on the button, you consent to the processing of your personal data.</label>
+        </fieldset>
+        @@include('button/index.html', {
+            'class':'message-modal__send-btn message-btn_js',
+            'type':'submit',
+            'text-btn':'Send',
+            'id': 'message-modal__send-btn',
+            'disable': 'disabled'
+        })
+    </form>
+    <button class="message-modal__btn_close modal-btn-close_js" type="button" aria-label="message modal close">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="#828282" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill=""/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill=""/>
+        </svg>
+    </button>
+    @@include('spinner/index.html')
+</div>

@@ -1,0 +1,29 @@
+.button {
+    font-family: var(--font-gilroy);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #070707;
+    padding: 8px 16px;
+    border: 2.5px solid #070707;
+    box-sizing: border-box;
+    border-radius: 30px;
+    background-color: transparent;
+
+    &:disabled {
+        border: 2.5px solid #E5E5E5;
+        color: #E5E5E5;
+        pointer-events: none;
+    }
+
+    &:disabled+.reset-form__title {
+        pointer-events: none;
+    }
+
+    &:hover,
+    &:active {
+        background: #070707;
+        color: #fff;
+    }
+
+}

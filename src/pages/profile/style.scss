@@ -1,0 +1,128 @@
+main {
+    padding-bottom: 93px;
+}
+
+.page__title {
+    font-size: 47px;
+    line-height: 57px;
+    margin-top: 39px;
+    display: inline-block;
+}
+
+.profile {
+    display: flex;
+    margin-top: 40px;
+    &__image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        max-width: 320px;
+        width: 100%;
+        height: 450px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        margin-bottom: 20px;
+    }
+    &__image {
+        width: 100%;
+        height: 100%;
+    }
+    &__content {
+        margin-left: 7.3vw;
+    }
+    &__data {
+        list-style-type: none;
+        margin-bottom: 30px;
+    }
+    &__item {
+        margin-bottom: 20px;
+        & [class*="title"] {
+            line-height: 22px;
+        }
+        span {
+            font-weight: 500;
+            margin-left: 10px;
+        }
+    }
+    button {
+        display: block;
+        margin-bottom: 19px;
+    }
+}
+
+@media screen and (max-width: 1200px){
+    .container {
+        max-width: 648px;
+    }
+    .profile {
+        &__item {
+            span {
+                margin-left: 0.1vw;
+            }
+        }
+        &__image-container {
+            max-width: 314px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    .profile {
+        flex-wrap: wrap;
+        &__content {
+            margin-left: 9.9vw;
+        }
+        &__item {
+            span {
+                margin-left: 1.4vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px)  {
+    .header nav {
+        width: 95%;
+    }
+    .container {
+        margin: 0 auto;
+        width: unset;
+    }
+    .profile {
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .header {
+        border: none;
+        padding: 0;
+        &__nav {
+            display: none;
+        }
+    }
+    .container {
+        margin: 0 20px;
+    }
+    .mobile-menu-open-btn {
+        display: block;
+        top: 50px;
+        right: 0px;
+    }
+    .page__title {
+        margin-top: 9px;
+        max-width: 50%;
+    }
+    .profile {
+        justify-content: start;
+        &__content {
+            margin-left: 0;
+            margin-top: 17px;
+        }
+        &__item {
+            span {
+                margin-left: 3.2vw;
+            }
+        }
+    }
+}

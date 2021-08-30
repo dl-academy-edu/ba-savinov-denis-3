@@ -1,0 +1,53 @@
+<div class="sing-up-modal hidden sing-up-modal_js">
+    <h2 class="visually-hidden">Sing up Window</h2>
+    <form action="#" class="sing-up-modal__form" method="POST" name="registerForm">
+        <fieldset class="sing-up-modal__wrapper-email">
+            <label class="sing-up-modal__email" for="sing-up-email">Email <sup>*</sup></label>
+            <input type="text" id="sing-up-email" name="email">
+        </fieldset>
+        <fieldset class="sing-up-modal__wrapper">
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__name" for="sing-up-name">Name <sup>*</sup></label>
+                <input type="text" id="sing-up-name" name="name">
+            </div>
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__sname" for="sing-up-sname">Surname <sup>*</sup></label>
+                <input type="text" id="sing-up-sname" name="sname">
+            </div>
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__password" for="sing-up-password">Password <sup>*</sup></label>
+                <input type="password" id="sing-up-password" name="password">
+            </div>
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__repeat-password" for="sing-up-repeat-password">Repeat password <sup>*</sup></label>
+                <input type="password" id="sing-up-repeat-password" name="repeatPassword">
+            </div>
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__location" for="sing-up-location">Location <sup>*</sup></label>
+                <input type="text" id="sing-up-location" name="location">
+            </div>
+            <div class="sing-up-modal__block">
+                <label class="sing-up-modal__age" for="sing-up-age">Age <sup>*</sup></label>
+                <input type="number" id="sing-up-age" name="age">
+            </div>
+        </fieldset>
+        <fieldset class="sing-up-modal__wrapper-agreement">
+            <input type="checkbox" name="agreement" id="agreement">
+            <label for="agreement">Clicking on the button, you consent to the processing of your personal data.</label>
+        </fieldset>
+        @@include('button/index.html', {
+            'class':'sing-up-modal__submit-btn sing-up-btn_js',
+            'type':'submit',
+            'text-btn':'Sign up',
+            'id': 'sing-up-modal__submit-btn',
+            'disable': 'disabled'
+        })
+    </form>
+    <button class="sing-up-modal__btn_close modal-btn-close_js" type="button" aria-label="sing up close">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="#828282" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2.82861" width="32" height="4" rx="2" transform="rotate(45 2.82861 0)" fill=""/>
+        <rect y="22.6289" width="32" height="4" rx="2" transform="rotate(-45 0 22.6289)" fill=""/>
+        </svg>
+    </button>
+    @@include('spinner/index.html')
+</div>
